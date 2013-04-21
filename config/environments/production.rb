@@ -71,8 +71,8 @@ Pinterest::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['Kinvara'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :access_key_id => ENV['AKIAJB644PLVXHC4NFYA'],
+      :secret_access_key => ENV['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']
     }
   }
 end
