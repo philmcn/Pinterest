@@ -70,9 +70,9 @@ Pinterest::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['Kinvara'],
-      :access_key_id => ENV['AKIAJB644PLVXHC4NFYA'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 end
