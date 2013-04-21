@@ -3,7 +3,8 @@
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
- <%= f.input :image, label: "Please upload an image" %>
+ <%=f.input :image, label: "Upload an image from your computer" %>
+ <%= f.input :image_remote_url, label: "Or enter a URL from the web" %>
  <%= f.input :description, as: :text, input_html: { rows: "3"} %>
   
 
