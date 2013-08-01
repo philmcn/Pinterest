@@ -8,6 +8,7 @@ gem 'aws-sdk'
 gem 'faker' 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'opinio'
 
 
 # Bundle edge Rails instead:
@@ -51,3 +52,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "kaminari"

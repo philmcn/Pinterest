@@ -1,9 +1,13 @@
 Pinterest::Application.routes.draw do
+  opinio_model
+
   get "users/show"
 
   get "user/show"
 
-  resources :pins
+  resources :pins do
+    opinio
+  end
 
   devise_for :views
 
