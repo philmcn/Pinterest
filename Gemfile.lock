@@ -70,6 +70,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    letsrate (1.0.8)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -154,6 +155,7 @@ DEPENDENCIES
   faker
   jquery-rails
   kaminari
+  letsrate
   opinio
   paperclip (~> 3.0)
   pg

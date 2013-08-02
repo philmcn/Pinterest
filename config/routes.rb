@@ -1,4 +1,6 @@
 Pinterest::Application.routes.draw do
+  match '/rate' => 'rater#create', :as => 'rate'
+
   opinio_model
 
   get "users/show"

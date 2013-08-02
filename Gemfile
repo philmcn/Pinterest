@@ -9,6 +9,7 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'opinio'
+gem 'letsrate'
 
 
 # Bundle edge Rails instead:
