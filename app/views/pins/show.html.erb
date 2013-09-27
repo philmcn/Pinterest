@@ -1,23 +1,26 @@
 <div class="row">
-	<div class="span6 offset3">
+	<div class="col-md-6">
 		<div class="well">
-			<%= image_tag @pin.image %>
-		<p>
-  			<%= @pin.description %>
-		</p>
-		<p>
-  			<%= @pin.user.name %>
-		</p>
-		<% if current_user == @pin.user %>
-		<%= link_to 'Edit', edit_pin_path(@pin) %> |
-		<% end %>
 			
-		<%= rating_for @pin, "rating" %> 
-		</div>	
-		
-
-		<%= comments_for @pin %>	
+			<%= image_tag @pin.image, class: "img-responsive" %>
+			
+			<h4><%= link_to @pin.user.name, @pin.user %></h4>
+			
+			<p><%= @pin.description %></p>
+			<% if current_user == @pin.user %>
+				<%= link_to 'Edit', edit_pin_path(@pin) %> |
+			<% end %>
+			<%= rating_for @pin, "rating" %>
+		</div>
 	</div>
+
+	<div class="col-md-6">
+		<div class="well">
+			<%= render_comments_form @pin %>
+		</div>
+		<%= render_comments @pin %>
+	</div>
+
 </div>
 
 

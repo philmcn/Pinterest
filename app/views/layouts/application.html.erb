@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	  <title>Pinterest</title>
-	  <%= stylesheet_link_tag    "application", :media => "all" %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
-	</head>
-	<body>
-		<%= render 'layouts/header' %>
-		
-		<div class="container">
-			<%flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-			<% end %>
-		<%= yield %>
-		<%= render 'layouts/footer' %>
-		<div>
+    <title>Pinterest</title>
 
-	</body>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+  	<%= render 'layouts/header' %>
+
+  	<div class="container">
+
+  		<%flash.each do |name, msg| %>
+				<%= content_tag(:div, class: "alert alert-dismissable alert-info") do -%>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= msg %>
+        <% end -%>
+			<% end %>
+			
+			<%= yield %>
+
+    </div><!-- /.container -->
+
+    <%= render 'layouts/footer' %>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster 
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    -->
+  </body>
 </html>

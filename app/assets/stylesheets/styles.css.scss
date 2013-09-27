@@ -6,44 +6,50 @@ $btnPrimaryBackground: green;
 $navbarBackgroundHighlight: white;
 $navbarBackground: white;
 
-@import 'bootstrap';
 
-body {
-	padding-top: 60px;
+.navbar-toggle {
+    border-color: #DDD !important;
+
+    .icon-bar {
+        background-color: #CCC;
+    }
 }
 
-@import 'bootstrap-responsive';
-
-.navbar-inner {
-	@include box-shadow(none !important);
-	border: 0;
+.img-responsive {
+    margin: 0 auto;
 }
 
 .footer {
 	margin-top: 50px;
-	color: $blue;
+	color: #333
 	a {
-		color: $green
+		color: #777
 	}	
 }
 
 /* Required for jQuery Masonry */
 
 .box {
-    margin: 5px;
+    margin: 8px;
     padding: 5px;
     font-size: 11px;
     line-height: 1.4em;
-    float: left;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    box-shadow: 1px 1px 10px #444;
-    width: 214px;
+    box-shadow: 1px 1px 3px #888;
+    border: 1px solid #DDD;
+    width: 210px;
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%;
+        margin: 1em auto;
+    }
 }
 
 .box img {
-    diplay: block;
     width: 100%;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -53,7 +59,3 @@ body {
 .box .star img {
     width: auto !important;
 }
-
-.description {
-    margin: 10px 0 5px;
-}	
