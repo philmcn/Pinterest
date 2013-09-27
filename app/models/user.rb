@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+ letsrate_rater
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

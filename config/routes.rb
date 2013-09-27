@@ -8,6 +8,7 @@ Pinterest::Application.routes.draw do
   get "user/show"
 
   resources :pins do
+    get :top, on: :collection
     opinio
   end
 

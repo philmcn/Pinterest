@@ -1,4 +1,5 @@
 class Pin < ActiveRecord::Base
+ letsrate_rateable "rating"
  opinio_subjectum
   attr_accessible :description, :image, :image_remote_url
 
@@ -15,7 +16,14 @@ class Pin < ActiveRecord::Base
   	def image_remote_url=(url_value)
   			self.image = URI.parse(url_value) unless url_value.blank?
   		super	
-  	end	
+  	end
+
+    def self.top_rated
+      ids = RatingCache.where(cacheable_type:"Pin").order("avg DESC").map(&:cacheable_id)
+      records = find(ids)
+      sorted_records = ids.collect {|id| records.detect {|x| x.id == id}}
+    end
+
 end
 
 
