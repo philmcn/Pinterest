@@ -11,6 +11,8 @@
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
 			<% end %>
 			<%= rating_for @pin, "rating" %>
+			<br/>
+			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
 		</div>
 	</div>
 
