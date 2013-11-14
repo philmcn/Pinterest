@@ -21,6 +21,10 @@ Pinterest::Application.routes.draw do
 
   root :to => 'pins#index'
 
+  match 'auth/:provider/callback', to: 'authentications#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'authentications#destroy', as: 'signout'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

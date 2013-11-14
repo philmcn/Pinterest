@@ -4,12 +4,20 @@
   
 	<%= f.input :email %>
 	<%= f.input :password %>
-
  	<%= f.input :remember_me, as: :boolean %>
-
   <div class="form-action">
   	<%= f.submit "Sign in", class: "btn btn-primary" %>
   </div>
 <% end %>
 
+
 <%= render "devise/shared/links" %>
+<a href="/auth/facebook"><img
+src="/assets/facebook.png" /></a> 
+<a href="/auth/twitter"><img
+src="/assets/twitter.png" /></a> 
+
+ <a href="/auth/google"><img
+src="/assets/google.png" /></a> 
+<a href="/auth/linkedin"><img
+src="/assets/linkedin.png" /></a> 

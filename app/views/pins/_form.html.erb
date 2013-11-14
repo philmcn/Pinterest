@@ -5,10 +5,13 @@
 
  <%=f.input :image, label: "Upload an image from your computer" %>
  <%= f.input :image_remote_url, label: "Or enter a URL from the web" %>
+ <%= f.input :youtube_url, label: "Or enter a Video URL from the web" %>
+
  <%= f.input :description, as: :text, input_html: { rows: "3"} %>
+ 
   
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit,"Upload new Fake Ad", class: "btn btn-primary" %>
   </div>
 <% end %>

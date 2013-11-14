@@ -3,11 +3,14 @@
 
 <p class="description"><%= pin.description %></p>
 <%= rating_for pin, "rating" %>
+<p><strong>
+Video URL <%= link_to pin.youtube_url,youtube_embed(pin.youtube_url)  %>
+</p></strong>
 <p>
 <strong>
-	  Earned by <%= link_to pin.user.name, pin.user %>
+	  Uploaded by <%= link_to pin.user.name, pin.user %>
 <strong>		
-</p>	
+</p>		
  
  <% if current_user == pin.user %>
  	<p>

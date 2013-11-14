@@ -11,6 +11,7 @@ gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'opinio'
 gem 'letsrate'
+gem 'mysql2'
 
 
 
@@ -33,7 +34,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
+   gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -56,3 +57,9 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem "kaminari"
+gem 'debugger'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google'
+gem 'omniauth-linkedin'

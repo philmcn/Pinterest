@@ -13,6 +13,20 @@
 
 ActiveRecord::Schema.define(:version => 20130802001649667) do
 
+  create_table "authentications", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "user_name"
+    t.string   "auth_token"
+    t.datetime "oauth_expires_at"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "auth_secret"
+  end
+
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false
     t.integer  "commentable_id",   :null => false
@@ -32,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
+    t.string   "youtube_url"
   end
 
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
