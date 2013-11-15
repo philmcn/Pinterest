@@ -1,23 +1,22 @@
 <div class="form-bk"><div id="fb-root"></div>
-<div class="container" style="margin:auto;width:30%;">
+<div class="container" style="width:100%">
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-		<fieldset style="box-shadow: 1px 1px 13px 3px #888888;">
+		<fieldset style="width:0%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
 			<div id="legend">
-				<br/>
-				<legend class="">Login to Funny Fake Ads</legend>
+				<h3 class="">Login to Funny Fake Ads</h3>
 			</div>
-			<div class="control-group">
+		<div class="form-actions">
 			<div class="social">
 				<div class="social-button">
 				<a href="/auth/facebook"><img
-				src="/assets/facebook-2.png" width="270"  /></a>
+				src="/assets/facebook-2.png" style="width:270px;"/></a>
 				</div>
 				<div class="social-button">
 				<a href="/auth/twitter"><img
-				src="/assets/twitter-2.png" width="270" /></a></div>
+				src="/assets/twitter-2.png" style="width:270px;"/></a></div>
 				<div class="social-button">
 				 <a href="/auth/google"><img
-				src="/assets/google-2.png" width="270" /></a> </div>
+				src="/assets/google-2.png" style="width:270px;"/></a> </div>
 			</div>
 		</div>
 		<div class="form-actions">
@@ -37,9 +36,10 @@
 		  		</div>
 			</div>
 		</div>
-		  	<div class="form-actions ">
-		  		<%= f.submit "Sign in", :class => 'btn btn-success', :style=>"text-align:center;"  %>
+		  	<div class="form-actions">
+		  		<%= f.submit "Sign in", :class => 'btn btn-success', :style=>"width:270px;"  %>
 		  	</div>
+		  </div>
 		</fieldset>
 	<% end %>
 <!-- <a href="/auth/linkedin"><img
@@ -48,14 +48,12 @@ src="/assets/linkedin.png" /></a>  -->
 </div>
 
 <style>
-.social{
-	text-align:center;
-}
+
 .social-button{
 margin-bottom:10px;
 }
 
-input[type]{ height:50px;width:282px;}
+input[type]{ height:50px;}
 .formFooter {
     background: none repeat scroll 0 0 #F0F0F0;
     border-radius: 0 0 3px 3px;
@@ -63,4 +61,5 @@ input[type]{ height:50px;width:282px;}
     clear: both;
     padding: 10px 20px;
 }
+.form-actions{width:310px;margin:0px;}
 </style>
