@@ -1,8 +1,14 @@
 <div class="box">
+	<%if !pin.image.blank? %>
   <%= link_to (image_tag pin.image(:medium)), pin %> 
-
+ <%end%>
+ 
+ <%if !pin.youtube_url.blank? %>
+ <div style="text-align:center"><%= youtube_embed(pin.youtube_url).html_safe %></div>
+ <%end%>
 <p class="description"><%= pin.description %></p>
-<%= rating_for pin, "rating" %>
+
+<b>Rating:</b> <%= rating_for pin, "rating" %>
 <p>
 <strong>
 	  Uploaded by <%= link_to pin.user.name, pin.user %>
