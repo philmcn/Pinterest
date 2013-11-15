@@ -13,7 +13,7 @@ gem 'opinio'
 gem 'letsrate'
 gem 'mysql2'
 
-
+gem "twitter-bootstrap-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

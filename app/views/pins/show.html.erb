@@ -1,4 +1,6 @@
+
 <div class="row">
+
 	<div class="col-md-6">
 		<div class="well">
 			<% if !@pin.image.blank? %>
@@ -14,9 +16,7 @@
 			<% if !@pin.youtube_url %>
 			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
 			<%end%>
-            <b>Rating:</b> <%= rating_for @pin, "rating" %>
-			<br/>
-			
+            <b>Rating:</b> <%= rating_for @pin, "rating" %>			
 		</div>
 	</div>
 
@@ -28,5 +28,6 @@
 	</div>
 
 </div>
+
 
 

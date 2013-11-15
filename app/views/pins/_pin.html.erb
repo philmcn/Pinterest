@@ -1,3 +1,4 @@
+
 <div class="box">
 	<%if !pin.image.blank? %>
   <%= link_to (image_tag pin.image(:medium)), pin %> 
@@ -9,6 +10,11 @@
 <p class="description"><%= pin.description %></p>
 
 <b>Rating:</b> <%= rating_for pin, "rating" %>
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js#appId=110235705750960&xfbml=1" type="text/javascript"></script>
+<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
+
 <p>
 <strong>
 	  Uploaded by <%= link_to pin.user.name, pin.user %>

@@ -46,7 +46,7 @@ Pinterest::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-   config.assets.precompile += %w( application.css authentications.css comments.css styles.css letsrate.js application.js authentications.js facebook.js jquery.raty.js pages.js pins.js users.js)
+   #config.assets.precompile += %w( application.css authentications.css comments.css styles.css letsrate.js application.js authentications.js facebook.js jquery.raty.js pages.js pins.js users.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
