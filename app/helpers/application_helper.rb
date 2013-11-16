@@ -8,7 +8,7 @@ module ApplicationHelper
 	    youtube_id = $5
 	  end
 
-	  %Q{<iframe title="YouTube video player" width="200" height="200" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+	  %Q{<iframe title="YouTube video player" width="200" height="200" src="http://www.youtube.com/embed/#{ youtube_id }" ,'top=50, left=50, width=280, height=257, toolbar=no, menubar=no, location=no, scrollbars=no, resizable=no') frameborder="0" allowfullscreen></iframe>}
 	end
 
 end

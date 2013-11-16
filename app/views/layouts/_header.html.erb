@@ -9,18 +9,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Funny Fake Ads", root_path, class: "navbar-brand" %>
+        
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          <%= link_to "Funny Fake Ads", root_path, class: "navbar-brand" %>
           <li><%= link_to "Home", root_path %></li> 
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Top Fake Ads", top_pins_path %></li> 
         </ul> 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.nil? %>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Upload New Funny Fake Ad", new_user_session_path %></li>
          <% else %>
             <li><%= link_to "Add New Funny Fake Ads", new_pin_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
