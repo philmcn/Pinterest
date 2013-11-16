@@ -1,15 +1,46 @@
-<h2>Sign up</h2>
+<div class="form-bk"><div id="fb-root"></div>
+<div class="container" style="width:100%">
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
+<fieldset style="width:0%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
+	<div id="legend">
+				<h3 class="">Sign up to Funny Fake Ads</h3>
+			</div>
+			
   <%= f.error_notification %>
+    <div>
+  <%= f.email_field :name, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Name"%></div>
 
-  <%= f.input :name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %> 
+   <div>
+  <%= f.email_field :email, :class => 'input-xlarge', :placeholder=> "Email"%></div>
 
+  <div>
+  <%= f.password_field :password , :class => 'input-xlarge', :placeholder=> "Password"%></div>
+
+  <div>
+  <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder=> "Conferm Password"%></div>
   <div class="form-actions">
-  	<%= f.submit "Sign up", class: "btn btn-primary" %></div>
+  	<%= f.submit "Sign up", :class => 'btn btn-success', :style=>"margin-left: -181px; width: 275px" %></div>
+  
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</fieldset>
+</div>
+<style>
+
+.social-button{
+margin-bottom:10px;
+}
+
+input[type]{ height:50px !important;}
+.formFooter {
+    background: none repeat scroll 0 0 #F0F0F0;
+    border-radius: 0 0 3px 3px;
+    border-top: 1px solid #DADADA;
+    clear: both;
+    padding: 10px 20px;
+}
+.form-actions{width:310px;margin:0px;}
+</style>
