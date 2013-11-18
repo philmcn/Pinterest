@@ -6,16 +6,17 @@
 			<% if !@pin.image.blank? %>
 			<%= image_tag @pin.image, class: "img-responsive" %>
 			<% end %>
-			
+			<% if !@pin.youtube_url.blank? %>
+			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
+			<%end%>
 			<h4><%= link_to @pin.user.name, @pin.user %></h4>
 			
 			<p><%= @pin.description %></p>
 			<% if current_user == @pin.user %>
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
 			<% end %>
-			<% if !@pin.youtube_url %>
-			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
-			<%end%>
+			
+			
             <b>Rating:</b> <%= rating_for @pin, "rating" %>			
 		</div>
 	</div>

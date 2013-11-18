@@ -14,7 +14,7 @@ Pinterest::Application.routes.draw do
 
   devise_for :views
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   match 'users/:id' => 'users#show', as: :user
   
   get 'about' => 'pages#about'

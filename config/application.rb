@@ -58,5 +58,6 @@ module Pinterest
 
     config.assets.initialize_on_precompile = true
     #required for Devise on Heroku
+    config.gem "cancan"
   end
 end

@@ -16,15 +16,20 @@
 <fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 
 <p>
-<strong>
+<strong><%if user_signed_in?%>
+<% if !pin.user.name.blank?%>
 	  Uploaded by <%= link_to pin.user.name, pin.user %>
+	  <%end%>
+	  <%end%>
 <strong>		
 </p>		
- 
- <% if current_user == pin.user %>
+s
+ <%if user_signed_in? %>
+ <% if current_user.has_role? "admin" %>
  	<p>
 	<%= link_to 'Edit', edit_pin_path(pin) %> 
 	<%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 	</p>
   <% end %>
+  <%end%>
 </div>

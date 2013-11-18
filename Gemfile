@@ -63,3 +63,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-linkedin'
+gem "rolify"
+gem "cancan"

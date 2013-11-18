@@ -23,6 +23,7 @@ class PinsController < ApplicationController
   # GET /pins/1
   # GET /pins/1.json
   def show
+
     @pin = Pin.find(params[:id])
 
     respond_to do |format|
@@ -45,7 +46,7 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
-    @pin = current_user.pins.find(params[:id])
+    @pin = Pin.find(params[:id])
   end
 
   # POST /pins
@@ -84,7 +85,8 @@ class PinsController < ApplicationController
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
-    @pin = current_user.pins.find(params[:id])
+   
+    @pin = Pin.find(params[:id])
     @pin.destroy
 
     respond_to do |format|
