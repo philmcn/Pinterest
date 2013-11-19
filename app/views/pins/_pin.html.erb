@@ -5,9 +5,16 @@
  <%end%>
  
  <%if !pin.youtube_url.blank? %>
- <div style="text-align:center"><%= youtube_embed(pin.youtube_url).html_safe %></div>
+
+ <div style="text-align:center"><%= link_to youtube_embed(pin.youtube_url).html_safe %></div>
+ 
+ 	<%if !pin.user.blank? %>
+ <%= link_to "View Video", pin %>
  <%end%>
-<p class="description"><%= pin.description %></p>
+
+ <%end%>
+
+<p class="description"> <%= pin.description %></p>
 
 <b>Rating:</b> <%= rating_for pin, "rating" %>
 
@@ -36,3 +43,5 @@
   <% end %>
   <%end%>
 </div>
+
+	
