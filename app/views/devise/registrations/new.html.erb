@@ -2,7 +2,7 @@
 <div class="container" style="width:100%">
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
-<fieldset style="width:0%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
+<fieldset style="width:28%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
 	<div id="legend">
 				<h4 class="">Sign up</h4>
 			</div>
@@ -23,14 +23,14 @@
   <div class="form-actions"style="width:0" >
   	<%= f.submit "Sign up To Funny Fake Ads", :class => 'btn btn-success', :style=>"margin-left: -181px; width: 275px" %></div>
 
-  	<div class="form-actions">
+  	<div >
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name),:class => 'btn btn-primary',:style=>"margin-left: -181px; width: 275px; height: 49px;" %><br />
+  <%= link_to "Sign in", new_session_path(resource_name),:style=>"margin:left;" %><br />
 <% end -%>
 </div>
 <div>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: 73px;" %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: left;" %>
 </div>
 <% end -%>
 <% end %>

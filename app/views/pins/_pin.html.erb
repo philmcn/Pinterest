@@ -16,14 +16,17 @@
 <fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 
 <p>
-<strong><%if user_signed_in?%>
-<% if !pin.user.name.blank?%>
+<strong>
+	
+<% if user_signed_in? %>
+
+<% if  !pin.user.nil? %>
 	  Uploaded by <%= link_to pin.user.name, pin.user %>
 	  <%end%>
-	  <%end%>
+	 <%end%>
 <strong>		
 </p>		
-s
+
  <%if user_signed_in? %>
  <% if current_user.has_role? "admin" %>
  	<p>
