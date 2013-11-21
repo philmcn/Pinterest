@@ -1,4 +1,7 @@
 <div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js#appId=601838723185712&xfbml=1" type="text/javascript"></script>
+
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -24,11 +27,14 @@
 <p class="description"> <%= pin.description %></p>
 
 <b>Rating:</b> <%= rating_for pin, "rating" %>
-<div style="align:center;">
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/en_US/all.js#appId=601838723185712&xfbml=1" type="text/javascript"></script>
-<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
-<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= pin.id %>" data-type="button">
+
+<div>
+	<div style="float: left;">
+	<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
+	</div>
+	<div style="float: right;">
+	<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= pin.id %>" data-type="button">
+	</div>
 </div>
 </div>
 <p>

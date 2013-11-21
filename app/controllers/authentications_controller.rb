@@ -19,7 +19,9 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Authentication successful."
       sign_in_and_redirect(:user, authentication.user)
     else
+    
       if !current_user
+        
         if  auth['provider']=="twitter"
         	
           exiting_user = User.find_by_name(auth["extra"]["raw_info"]["screen_name"] )
@@ -33,15 +35,18 @@ class AuthenticationsController < ApplicationController
             sign_in_and_redirect(:user, exiting_user )
           end
         else
+         
           user = User.new
           user.apply_omniauth(auth,true)
           if  auth['provider']=="twitter"
-            user.email = ""
+             user.email = auth["extra"]["raw_info"]["screen_name"] 
              user.name = auth["extra"]["raw_info"]["screen_name"] 
           end
+          
           if user.save(:validate => false)
             flash[:notice] = "Authentication successful."
             authentication =  user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
+            
             if authentication
               check_authentication(authentication)
               sign_in_and_redirect(:user, authentication.user)
@@ -49,6 +54,7 @@ class AuthenticationsController < ApplicationController
           end
         end
       else
+        
         authentication = current_user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
         if authentication
           check_authentication(authentication)
@@ -79,6 +85,7 @@ class AuthenticationsController < ApplicationController
   
   def check_authentication(authentication)
     auth = request.env["omniauth.auth"]
+    
     if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google"
      authentication.auth_token = auth["credentials"]["token"]
     else
@@ -92,6 +99,7 @@ class AuthenticationsController < ApplicationController
     if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google"
      authentication.user_name = auth['info']['email'] 
     elsif  auth['provider']=="twitter"
+
      authentication.user_name = auth["extra"]["raw_info"]["screen_name"] 
     end
     authentication.save!

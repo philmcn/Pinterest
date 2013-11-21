@@ -4,7 +4,7 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
 <fieldset style="width:28%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
 	<div id="legend">
-				<h4 class="">Sign up</h4>
+				<h4 class="">Create Account</h4>
 			</div>
     <div class="social">
         <div class="social-button">
@@ -36,7 +36,7 @@
 
   	<div >
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name),:style=>"margin:left;" %><br />
+  <%= link_to "Sign in", new_session_path(resource_name), :style=>"margin-left: 0px; width: 275px; height: 44px;", :class => 'btn btn-primary'%><br />
 <% end -%>
 </div>
 <div>

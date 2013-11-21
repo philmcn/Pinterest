@@ -26,7 +26,7 @@ group :development, :test do
 	gem 'sqlite3'
 end 
 
-
+gem "omnicontacts"
 
 
 group :assets do

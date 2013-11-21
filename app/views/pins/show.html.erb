@@ -1,3 +1,5 @@
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js#appId=601838723185712&xfbml=1" type="text/javascript"></script>
 
 <div class="row">
 
@@ -9,15 +11,24 @@
 			<% if !@pin.youtube_url.blank? %>
 			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
 			<%end%>
-			<h4><%= link_to @pin.user.name, @pin.user %></h4>
 			
+			<% if  !@pin.user.nil? %>
+			<h4><%= link_to @pin.user.name, @pin.user %></h4>
+			<%end%>
 			<p><%= @pin.description %></p>
 			<% if current_user == @pin.user %>
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
 			<% end %>
 			
 			
-            <b>Rating:</b> <%= rating_for @pin, "rating" %>			
+            <b>Rating:</b> <%= rating_for @pin, "rating" %>	
+            <div >
+	<fb:like href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
+	<div style="float:right;">
+	<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-type="button">
+	</div>
+</div>
+</div>		
 		</div>
 	</div>
 
