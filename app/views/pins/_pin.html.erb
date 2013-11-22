@@ -2,13 +2,6 @@
 <script src="http://connect.facebook.net/en_US/all.js#appId=601838723185712&xfbml=1" type="text/javascript"></script>
 
 
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 <div class="box">
 	<%if !pin.image.blank? %>
   <%= link_to (image_tag pin.image(:medium)), pin %> 
@@ -16,12 +9,7 @@
  
  <%if !pin.youtube_url.blank? %>
 
- <div style="text-align:center"><%= link_to youtube_embed(pin.youtube_url).html_safe %></div>
- 
- 	<%if !pin.user.blank? %>
- <%= link_to "View Video", pin %>
- <%end%>
-
+ <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %></div>
  <%end%>
 
 <p class="description"> <%= pin.description %></p>
