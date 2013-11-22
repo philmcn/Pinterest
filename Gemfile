@@ -24,7 +24,7 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
-	gem 'therubyracer', :platform => :ruby
+	#gem 'therubyracer', :platform => :ruby
 
 end 
 
