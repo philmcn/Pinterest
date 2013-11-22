@@ -25,18 +25,18 @@
 	</div>
 </div>
 </div>
-<p>
-<strong>
-	
-<% if user_signed_in? %>
+	<div style="padding-top:30px">	<p>
+		<strong>
+			
+		<% if user_signed_in? %>
 
-<% if  !pin.user.nil? %>
-	  Uploaded by <%= link_to pin.user.name, pin.user %>
-	  <%end%>
-	 <%end%>
-<strong>		
-</p>		
-
+		<% if  !pin.user.nil? %>
+			  Uploaded by <%= link_to pin.user.name, pin.user %>
+			  <%end%>
+			 <%end%>
+		<strong>		
+		</p>		
+</div>
  <%if user_signed_in? %>
  <% if current_user.has_role? "admin" %>
  	<p>
