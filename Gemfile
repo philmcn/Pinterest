@@ -7,8 +7,6 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'faker' 
 gem 'will_paginate'
-gem 'will_paginate-bootstrap'
-gem 'bootstrap-will_paginate', '0.0.6'
 gem 'opinio'
 gem 'letsrate'
 gem 'mysql2'
@@ -57,7 +55,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem "kaminari"
+#gem "kaminari"
 gem 'debugger'
 gem 'omniauth'
 gem 'omniauth-twitter'

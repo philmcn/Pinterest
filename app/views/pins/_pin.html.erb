@@ -1,50 +1,48 @@
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/en_US/all.js#appId=601838723185712&xfbml=1" type="text/javascript"></script>
+<%= javascript_include_tag "letsrate" %>
+<div class="box" style="float:left;">
 
-
-<div class="box">
 	<%if !pin.image.blank? %>
-  <%= link_to (image_tag pin.image(:medium)), pin %> 
- <%end%>
+	  <%= link_to (image_tag pin.image(:medium)), pin %> 
+	<%end%>
  
- <%if !pin.youtube_url.blank? %>
+	<%if !pin.youtube_url.blank? %>
 
- <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %></div>
- <%end%>
+	 <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %></div>
+	<%end%>
 
-<p class="description"> <%= pin.description %></p>
+	<p class="description"> <%= pin.description %></p>
 
-<b>Rating:</b> <%= rating_for pin, "rating" %>
+	<b>Rating:</b><%= rating_for pin, "rating" %>
 
-<div>
-	<div style="float: left;">
-	<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
-	</div>
-	<div style="float: right;">
-	<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= pin.id %>" data-type="button">
+	<div>
+		<div style="float: left;">
+			<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
+		</div>
+		<div style="float: right;">
+			<div class="fb-share-button" data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
+		</div>
 	</div>
 </div>
-</div>
-	<div style="padding-top:30px">	<p>
-		<strong>
-			
-		<% if user_signed_in? %>
 
-		<% if  !pin.user.nil? %>
-			  Uploaded by <%= link_to pin.user.name, pin.user %>
-			  <%end%>
-			 <%end%>
-		<strong>		
+	<div style="padding-top:30px">	
+		<p>
+			<strong>
+				
+				<% if user_signed_in? %>
+
+					<% if  !pin.user.nil? %>
+						  Uploaded by <%= link_to pin.user.name, pin.user %>
+					<%end%>
+				<%end%>
+			</strong>		
 		</p>		
-</div>
- <%if user_signed_in? %>
- <% if current_user.has_role? "admin" %>
- 	<p>
-	<%= link_to 'Edit', edit_pin_path(pin) %> 
-	<%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</p>
-  <% end %>
+	</div>
+	<%if user_signed_in? %>
+		 <% if current_user.has_role? "admin" %>
+		 	<p>
+			<%= link_to 'Edit', edit_pin_path(pin) %> 
+			<%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+			</p>
+		  <% end %>
   <%end%>
 </div>
-
-	

@@ -34,8 +34,6 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
-    bootstrap-will_paginate (0.0.6)
-      will_paginate
     builder (3.0.4)
     cancan (1.6.10)
     climate_control (0.0.3)
@@ -191,22 +189,18 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.4)
-    will_paginate-bootstrap (0.2.5)
-      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   aws-sdk
-  bootstrap-will_paginate (= 0.0.6)
   cancan
   coffee-rails (~> 3.2.1)
   debugger
   devise
   faker
   jquery-rails
-  kaminari
   letsrate
   mysql2
   omniauth
@@ -226,4 +220,3 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   will_paginate
-  will_paginate-bootstrap

@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.masonry.min.js
-//= reuire bootstrap
+//= require bootstrap
 //= require_tree .
 
 (function(d, s, id) {

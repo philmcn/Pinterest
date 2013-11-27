@@ -12,6 +12,8 @@ Pinterest::Application.routes.draw do
     opinio
   end
 
+  get 'inf' => 'pins#inf', :as => 'inf'
+
   devise_for :views
 
   devise_for :users, :controllers => {:registrations => "registrations"}

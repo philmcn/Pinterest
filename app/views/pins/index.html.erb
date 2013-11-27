@@ -1,7 +1,24 @@
+
 <% render 'pages/home' %>
 
 <div id="pins">
-  <%= render @pins %>
+	 <div class="item"><div id="postswrapper"><%= render @pins %></div></div>
 </div>
+<br/>
+<div id="loadmoreajaxloader" style="display:none;width:100%;float:right;background-color:#eeeeee;padding:3px;"><center>Loading...<img src="assets/loader.gif" /></center></div></div>
 
-<%= will_paginate @pins, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
+<%#= will_paginate @pins, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
+
+<script type="text/javascript">
+var current_page=1;
+$(window).scroll(function()
+{    if($(window).scrollTop() == $(document).height() - $(window).height())
+    {current_page++;
+        $('div#loadmoreajaxloader').show();
+        $.ajax({
+        url: "inf?page="+current_page,
+
+        });
+    }
+});
+</script>

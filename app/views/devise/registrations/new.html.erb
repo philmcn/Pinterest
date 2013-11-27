@@ -1,7 +1,9 @@
 <div class="form-bk"><div id="fb-root"></div>
 <div class="container" style="width:100%">
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
 <fieldset style="width:28%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
 	<div id="legend">
 				<h4 class="">Create Account</h4>
@@ -18,9 +20,9 @@
          <a href="/auth/google"><img
         src="/assets/google3.png" style="width:270px;"/></a> </div>
       </div>
-  <%= f.error_notification %>
+
     <div class="control-group">
-  <%= f.email_field :name, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Name"%></div>
+  <%= f.text_field :name, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Name"%></div>
 
    <div class="control-group">
   <%= f.email_field :email, :class => 'input-xlarge', :placeholder=> "Email"%></div>
@@ -32,7 +34,7 @@
   <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder=> "Confirm Password"%></div>
   <%= f.hidden_field :role ,:value=>"user" %>
   <div class="form-actions"style="width:0" >
-  	<%= f.submit "Sign up To Funny Fake Ads", :class => 'btn btn-success', :style=>"margin-left: -181px; width: 275px" %></div>
+  	<%= f.submit "Sign up To Funny Fake Ads", :class => 'btn btn-success', :style=>"margin-left:-21px; width: 275px" %></div>
 
   	<div >
 <%- if controller_name != 'sessions' %>

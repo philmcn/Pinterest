@@ -1,0 +1,11 @@
+ <% if !@pins.blank? %>
+            {
+				$('#postswrapper').append("<%= escape_javascript(render(@pins)) %>");
+                $('div#loadmoreajaxloader').hide();
+            }
+<% else %>
+            {
+                $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+            }
+<% end %>
+FB.XFBML.parse($("#postswrapper")[0]);
