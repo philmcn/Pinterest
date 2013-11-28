@@ -106,7 +106,7 @@ class PinsController < ApplicationController
 
   private
     def facebook_like_pin_shorting()
-      if $global_fb_pin.blank?
+      if $pin_user.blank?
           @fb_like_count = 0 
           @facebook_likes = []
           @pin_user = []
@@ -115,7 +115,7 @@ class PinsController < ApplicationController
             @graph =Koala::Facebook::RestAPI.new("CAACEdEose0cBAMruhVCMu4NGAtg5nnSOLB8KX118ef2BUYSSUnPGeJjMl9ZBasG0W4ghtag1qTEXu2QZCq9Q5kEjKpEYX4ph7HjZCWeNESlH4MUlCMbn9sZC66TIoD15ayeoGsL70bWldF10AOohbTjj959QYVeKWmUZCZB4yyTboZAvtizZCR6YKhu6PgiXwwW98Mbshkj23AZDZD")
             uid = "http://hidden-chamber-6590.herokuapp.com/pins/#{pin.id}"
             @like_count = @graph.fql_query('select url ,like_count FROM link_stat WHERE url = "' + uid + '"')
-            @facebook_likes[@fb_like_count]=pin.id
+            @facebook_likes[@fb_like_count]=@like_count[0]["url"].match(/\d+\z/)[0].to_i
             @fb_like_count=@fb_like_count+1
             @facebook_likes[@fb_like_count]=@like_count[0]["like_count"]
             @fb_like_count=@fb_like_count+1
