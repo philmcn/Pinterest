@@ -64,3 +64,4 @@ gem 'omniauth-google'
 gem 'omniauth-linkedin'
 gem "rolify"
 gem "cancan"
+gem "koala"

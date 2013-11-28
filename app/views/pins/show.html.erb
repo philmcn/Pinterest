@@ -10,7 +10,9 @@
 			<% if !@pin.youtube_url.blank? %>
 			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
 			<%end%>
-			
+			<% if !@pin.brand.blank?%>
+				<p class="brand"><strong>Brand:</strong> <%= @pin.brand %></p>
+			<%end%>
 			
 			<p><h3><%= @pin.description %></h3></p>
 			<% if current_user == @pin.user %>
@@ -20,7 +22,7 @@
 			
             <b>Rating:</b> <%= rating_for @pin, "rating" %>	
             <% if  !@pin.user.nil? %>
-			<p>Uploaded By-<%= link_to @pin.user.name, @pin.user %></p>
+			<p><strong>Uploaded By-</strong><%= link_to @pin.user.name, @pin.user %></p>
 			<%end%>
             <div >
 	<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= @pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>

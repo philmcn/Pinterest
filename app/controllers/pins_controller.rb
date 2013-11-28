@@ -3,16 +3,17 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.order("created_at desc").page(params[:page]).per_page(10)
-        respond_to do |format|
+      facebook_like_pin_shorting()
+      @pins = @pin_user.paginate(:page => params[:page],:per_page => 10)
+      respond_to do |format|
       format.html
       format.json { render json: @pins }
     end
   end
 
   def top
-    @pins = Pin.top_rated
-
+      @pins = Pin.top_rated
+  
     respond_to do |format|
       format.html
       format.json { render json: @pins }
@@ -20,7 +21,8 @@ class PinsController < ApplicationController
   end
 
   def inf
-     @pins = Pin.order("created_at desc").page(params[:page]).per_page(20)
+      facebook_like_pin_shorting()
+      @pins = @pin_user.paginate(:page => params[:page],:per_page => 10)
       respond_to do |format|
       format.js
       format.json { render json: @pins }
@@ -101,4 +103,27 @@ class PinsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def facebook_like_pin_shorting()
+      @fb_like_count = 0 
+      @facebook_likes = []
+      @pin_user = []
+      @pins = Pin.all
+      @pins.each_with_index do |pin,index|
+      @graph =Koala::Facebook::RestAPI.new("CAAJlVFSwdGMBABmZBFpi8eTB4kJ8cMH4KswCbMu7ybtH1w4Hk4nm9h3ROFoJZC0vSLm7lpBChZArpxXIsqqB6LZBM6tYWVJPxMuwWiWbl2M9e68uEjrweABnL6SyXyKlkveW06Yx3j9mZBy8vLtMkjEv4i98TmgEgrZBlNZCZBfaqCC6Y1JK4AJWro2472RhqtZAcOUiscSSI1wZDZD")
+      uid = "http://hidden-chamber-6590.herokuapp.com/pins/#{pin.id}"
+      @like_count = @graph.fql_query('select url ,like_count FROM link_stat WHERE url = "' + uid + '"')
+      @facebook_likes[@fb_like_count]=pin.id
+      @fb_like_count=@fb_like_count+1
+      @facebook_likes[@fb_like_count]=@like_count[0]["like_count"]
+      @fb_like_count=@fb_like_count+1
+    end
+    @facebook_likes_hash = Hash[*@facebook_likes]
+    @facebook_likes_hash_index = @facebook_likes_hash.sort_by{|k, v| v}.reverse
+    @facebook_likes_hash_index.each_with_index do |pin,index|
+      @pin_user[index] = Pin.find(pin[0])
+    end
+    end
+
 end

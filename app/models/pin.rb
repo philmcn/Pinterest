@@ -1,7 +1,7 @@
 class Pin < ActiveRecord::Base
  letsrate_rateable "rating"
  opinio_subjectum
-  attr_accessible :description, :image, :image_remote_url, :youtube_url
+  attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand
 
 
   	validates :description, presence: true

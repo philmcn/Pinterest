@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
 
 def apply_omniauth(omniauth,confirmation)
-  debugger
+ 
      self.email = omniauth['info']['email'] if self.email.blank?
     
   end
