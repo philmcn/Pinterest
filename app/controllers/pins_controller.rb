@@ -111,7 +111,7 @@ class PinsController < ApplicationController
       @pin_user = []
       @pins = Pin.all
       @pins.each_with_index do |pin,index|
-      @graph =Koala::Facebook::RestAPI.new("CAAJlVFSwdGMBABmZBFpi8eTB4kJ8cMH4KswCbMu7ybtH1w4Hk4nm9h3ROFoJZC0vSLm7lpBChZArpxXIsqqB6LZBM6tYWVJPxMuwWiWbl2M9e68uEjrweABnL6SyXyKlkveW06Yx3j9mZBy8vLtMkjEv4i98TmgEgrZBlNZCZBfaqCC6Y1JK4AJWro2472RhqtZAcOUiscSSI1wZDZD")
+      @graph =Koala::Facebook::RestAPI.new("CAACEdEose0cBAMruhVCMu4NGAtg5nnSOLB8KX118ef2BUYSSUnPGeJjMl9ZBasG0W4ghtag1qTEXu2QZCq9Q5kEjKpEYX4ph7HjZCWeNESlH4MUlCMbn9sZC66TIoD15ayeoGsL70bWldF10AOohbTjj959QYVeKWmUZCZB4yyTboZAvtizZCR6YKhu6PgiXwwW98Mbshkj23AZDZD")
       uid = "http://hidden-chamber-6590.herokuapp.com/pins/#{pin.id}"
       @like_count = @graph.fql_query('select url ,like_count FROM link_stat WHERE url = "' + uid + '"')
       @facebook_likes[@fb_like_count]=pin.id
