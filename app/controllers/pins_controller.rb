@@ -11,8 +11,9 @@ class PinsController < ApplicationController
   end
 
   def top
+  
     @pins = Pin.top_rated
-
+  
     respond_to do |format|
       format.html
       format.json { render json: @pins }

@@ -9,7 +9,10 @@
 
 	 <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %></div>
 	<%end%>
-
+<%if !pin.brand.blank? %>
+	 <p class="brand"> <strong>Brand-</strong><%= pin.brand %></p> 
+	<%end%>
+ 
 	<p class="description"> <%= pin.description %></p>
 
 	<b>Rating:</b><%= rating_for pin, "rating" %>

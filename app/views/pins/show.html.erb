@@ -10,7 +10,10 @@
 			<% if !@pin.youtube_url.blank? %>
 			<div style="text-align:center"><%= youtube_embed(@pin.youtube_url).html_safe %></div>
 			<%end%>
-			
+			<%if !@pin.brand.blank? %>
+				 <p class="brand"> <strong>Brand-</strong><%= @pin.brand %></p> 
+				<%end%>
+ 
 			
 			<p><h3><%= @pin.description %></h3></p>
 			<% if current_user == @pin.user %>
