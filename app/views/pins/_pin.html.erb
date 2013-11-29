@@ -1,5 +1,24 @@
 <%= javascript_include_tag "letsrate" %>
-<div class="box" style="float:left;">
+<script>
+$(function(){
+ var $container = $('.masonry-container');
+
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector: '.box',
+      columnWidth: 0
+    });
+  });
+  var $box = $(html).find('.box');
+  $(".masonry-container").append($box).masonry( 'appended', $box, true );
+  $(".masonry-container").masonry('reload');
+  console.log("Reloaded masonry");
+  loading = false;
+
+});
+
+</script>
+<div class="box">
 
 	<%if !pin.image.blank? %>
 	  <%= link_to (image_tag pin.image(:medium)), pin %> 
@@ -23,7 +42,7 @@
 			<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 		</div>
 		<div style="float: right;">
-			<div class="fb-share-button"  data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
+			<div class="fb-share-button" data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
 		</div>
 	</div>
 </div>

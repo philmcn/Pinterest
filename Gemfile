@@ -22,7 +22,7 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
-	#gem 'therubyracer', :platform => :ruby
+	gem 'therubyracer', :platform => :ruby
 
 end 
 
@@ -37,6 +37,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'masonry-rails'
 
 gem 'jquery-rails'
 
@@ -56,7 +58,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 #gem "kaminari"
-#gem 'debugger'
+gem 'debugger'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'

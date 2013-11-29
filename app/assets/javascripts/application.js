@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= reuire bootstrap
+//= reuire  bootstrap
+//= require masonry/jquery.masonry
+//= require masonry/jquery.event-drag
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
+//= require masonry/modernizr-transitions
 //= require_tree .
 
 (function(d, s, id) {
@@ -23,3 +28,22 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+$(function(){
+ var $container = $('.masonry-container');
+
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector: '.box',
+      columnWidth: 0
+    });
+  });
+  var $box = $(html).find('.box');
+  $(".masonry-container").append($box).masonry( 'appended', $box, true );
+  $(".masonry-container").masonry('reload');
+  console.log("Reloaded masonry");
+  loading = false;
+
+});
+
+
