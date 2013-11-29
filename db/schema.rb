@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "youtube_url"
+    t.string   "brand"
   end
 
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"

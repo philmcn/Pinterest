@@ -8,11 +8,12 @@
 	<%if !pin.youtube_url.blank? %>
 
 	 <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %></div>
-	<%end%>
-<%if !pin.brand.blank? %>
-	 <p class="brand"> <strong>Brand-</strong><%= pin.brand %></p> 
-	<%end%>
- 
+
+	<%end%><br>
+<% if !pin.brand.blank?%>
+<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+<%end%>
+
 	<p class="description"> <%= pin.description %></p>
 
 	<b>Rating:</b><%= rating_for pin, "rating" %>
@@ -22,12 +23,11 @@
 			<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 		</div>
 		<div style="float: right;">
-			<div class="fb-share-button" data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
+			<div class="fb-share-button"  data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
 		</div>
 	</div>
 </div>
-
-	<div style="padding-top:30px">	
+<div style="padding-top:30px">	
 		<p>
 			<strong>
 				

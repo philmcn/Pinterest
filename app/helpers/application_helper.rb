@@ -8,7 +8,7 @@ module ApplicationHelper
 	    youtube_id = $5
 	  end
 
-	  %Q{<iframe title="YouTube video player" width="450" height="350" src="http://www.youtube.com/embed/#{ youtube_id }?rel=0&autoplay=1" frameborder="0" target='_parent' allowfullscreen autoplay=true></iframe>}
+	  %Q{<iframe title="YouTube video player" width="450" height="350" src="http://www.youtube.com/embed/#{ youtube_id }?rel=0&autoplay=1" frameborder="0" target='_parent' allowfullscreen ></iframe>}
 	end
 
     def youtube_embed_image(youtube_url)
@@ -27,9 +27,17 @@ module ApplicationHelper
 def javascript(*args)
   content_for(:head) { javascript_include_tag(*args) }
 end
- def facebook_like
-            content_tag :iframe, nil, :src => "http://www.facebook.com/plugins/like.php?href=#{CGI::escape(request.url)}&layout=standard&show_faces=true&width=450&action=like&font=arial&colorscheme=light&height=80", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like
-          end
+ # def facebook_like
+ # 	debugger
+ # 	@oauth = Koala::Facebook::OAuth.new('674362825929827', '7cc5989b00027b86324d1268b6a4beec', {:client_options => {:ssl => {:ca_path => "/etc/ssl/  certs"}}, :scope=>"publish_stream,offline_access,read_stream,email"})
+ #         #@api = Koala::Facebook::API.new("CAACEdEose0cBAMbucvWtZAy3K9aQZBkz1oZAqXkhN58FtKxH2l5y74yYSnYGuKZCUlRZBcTcHZARmIcdACLJfziMS74kN0KooiPxX0KlnUwDA0nTVRuJvFhd2xSEVzbWPS8f63gOGUZAAWZAwdVrWfYgvpuzDg4pcmRZB7IidDNmZAsp1nLolzZB7fXXLZBPbyDeZAeNecZBcs5fDXcQZDZD")
+ #         @graph =Koala::Facebook::RestAPI.new("CAAJlVFSwdGMBAND8JVif3HOWE7CqEL9sf14ZCGnZAWHqal7gAEEGrfCiOYiZAzyYaX9LEGriWCOBtE2JJaLrgXU7PRVZBUj43b4eFGAv5PcIJqfZCTbx60nMWfMWSCDrffdyQpw09pkQFoSZBTTZBhsShR4bDrSaCPqSYgauZAsZAyBguuwXZCgFbSGi4N8ADUelfdaHCLqtOteAZDZD")
+ #         uid = "http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>"
+ #         @like_count = @graph.fql_query('select like_count FROM link_stat WHERE url = "' + uid + '"')
+ #         #@rest.fql_query("select  like_count from link_stat where  url="http://hidden-chamber-6590.herokuapp.com/pins/14")
+
+
+ #          end
         
 
 end
