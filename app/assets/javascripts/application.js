@@ -20,7 +20,7 @@
 //= require masonry/jquery.infinitescroll.min
 //= require masonry/modernizr-transitions
 //= require_tree .
-
+letsrate
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
