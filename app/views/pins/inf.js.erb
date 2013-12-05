@@ -1,7 +1,8 @@
+
  <% if !@pins.blank? %>
             {
 
-				$('.masonry-container').append("<%= escape_javascript(render(@pins)) %>");
+				$('.masonry-container').append("<%= escape_javascript(render(@pins).html_safe)%>");
                 $('div#loadmoreajaxloader').hide();
             }
 <% else %>
@@ -9,7 +10,7 @@
                 $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
             }
 <% end %>
-FB.XFBML.parse($("#postswrapper")[0]);
+ FB.XFBML.parse($("#postswrapper")[0]);
 $(".masonry-container").masonry('reload');
 
- 
+
