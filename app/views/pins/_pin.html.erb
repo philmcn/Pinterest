@@ -39,10 +39,23 @@ $(function(){
 	<b>Rating:</b><%= rating_for pin, "rating" %>
 
 	<div>
+		<div id="fb-root"></div>
+	
+	<script>
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+	</script>
 		<div style="float: left;">
 			<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 		</div>
 		<div style="float: right;">
+			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	     <script src="http://connect.facebook.net/en_US/all.js#appId=674362825929827&xfbml=1" type="text/javascript"></script>
 			<div class="fb-share-button" data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
 		</div>
 	</div>
