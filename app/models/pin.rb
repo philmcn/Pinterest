@@ -1,4 +1,11 @@
 class Pin < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :brand, use: :slugged
+  friendly_id :description, use: :slugged
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
  letsrate_rateable "rating"
  opinio_subjectum
   attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand
