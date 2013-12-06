@@ -22,7 +22,7 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
-	#gem 'therubyracer', :platform => :ruby
+#gem 'therubyracer', :platform => :ruby
 
 end 
 
@@ -66,3 +66,4 @@ gem 'omniauth-google'
 gem 'omniauth-linkedin'
 gem "rolify"
 gem "cancan"
+gem 'friendly_id'
