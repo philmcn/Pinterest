@@ -1,21 +1,21 @@
 <%=javascript_include_tag 'letsrate'%>
 <script>
-$(function(){
- var $container = $('.masonry-container');
+	$(function(){
+	 var $container = $('.masonry-container');
 
-  $container.imagesLoaded(function(){
-    $container.masonry({
-      itemSelector: '.box',
-      columnWidth: 0
-    });
-  });
-  var $box = $(html).find('.box');
-  $(".masonry-container").append($box).masonry( 'appended', $box, true );
-  $(".masonry-container").masonry('reload');
-  console.log("Reloaded masonry");
-  loading = false;
+	  $container.imagesLoaded(function(){
+	    $container.masonry({
+	      itemSelector: '.box',
+	      columnWidth: 0
+	    });
+	  });
+	  var $box = $(html).find('.box');
+	  $(".masonry-container").append($box).masonry( 'appended', $box, true );
+	  $(".masonry-container").masonry('reload');
+	  console.log("Reloaded masonry");
+	  loading = false;
 
-});
+	});
 
 </script>
 <div class="box">
@@ -26,8 +26,8 @@ $(function(){
  
 	<%if !pin.youtube_url.blank? %>
       <div style="text-align:center"><%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>
-	 	<div ><%= link_to (image_tag "youtube.png",:style=>"width: 58px;margin-top:-80%;" ), pin %></div>
-		</div>
+	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 58px;margin-top:-80%;" ), pin %></div>
+	  </div>
 
 	<%end%><br>
 <% if !pin.brand.blank?%>
@@ -51,12 +51,12 @@ $(function(){
 }(document, 'script', 'facebook-jssdk'));
 	</script>
 		<div style="float: left;">
-			<fb:like href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
+			<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 		</div>
 		<div style="float: right;">
 			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	     <script src="http://connect.facebook.net/en_US/all.js#appId=674362825929827&xfbml=1" type="text/javascript"></script>
-			<div class="fb-share-button" data-href="http://hidden-chamber-6590.herokuapp.com/pins/<%= pin.id %>" data-type="button">
+			<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= pin.id %>" data-type="button">
 		</div>
 	</div>
 </div>
