@@ -25,7 +25,15 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.string   "auth_secret"
   end
 
+  add_index "authentications", ["auth_secret"], :name => "index_authentications_on_auth_secret"
+  add_index "authentications", ["auth_token"], :name => "index_authentications_on_auth_token"
+  add_index "authentications", ["created_at"], :name => "index_authentications_on_created_at"
+  add_index "authentications", ["oauth_expires_at"], :name => "index_authentications_on_oauth_expires_at"
+  add_index "authentications", ["provider"], :name => "index_authentications_on_provider"
+  add_index "authentications", ["uid"], :name => "index_authentications_on_uid"
+  add_index "authentications", ["updated_at"], :name => "index_authentications_on_updated_at"
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+  add_index "authentications", ["user_name"], :name => "index_authentications_on_user_name"
 
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false
@@ -58,12 +66,22 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "youtube_url"
-    t.string   "brand"
     t.string   "slug"
+    t.string   "brand"
   end
 
+  add_index "pins", ["brand"], :name => "index_pins_on_brand"
+  add_index "pins", ["created_at"], :name => "index_pins_on_created_at"
+  add_index "pins", ["description"], :name => "index_pins_on_description"
+  add_index "pins", ["image_content_type"], :name => "index_pins_on_image_content_type"
+  add_index "pins", ["image_file_name"], :name => "index_pins_on_image_file_name"
+  add_index "pins", ["image_file_size"], :name => "index_pins_on_image_file_size"
+  add_index "pins", ["image_remote_url"], :name => "index_pins_on_image_remote_url"
+  add_index "pins", ["image_updated_at"], :name => "index_pins_on_image_updated_at"
   add_index "pins", ["slug"], :name => "index_pins_on_slug"
+  add_index "pins", ["updated_at"], :name => "index_pins_on_updated_at"
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
+  add_index "pins", ["youtube_url"], :name => "index_pins_on_youtube_url"
 
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
@@ -75,8 +93,12 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "rates", ["created_at"], :name => "index_rates_on_created_at"
+  add_index "rates", ["dimension"], :name => "index_rates_on_dimension"
   add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
+  add_index "rates", ["stars"], :name => "index_rates_on_stars"
+  add_index "rates", ["updated_at"], :name => "index_rates_on_updated_at"
 
   create_table "rating_caches", :force => true do |t|
     t.integer  "cacheable_id"
@@ -89,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
+  add_index "rating_caches", ["created_at"], :name => "index_rating_caches_on_created_at"
+  add_index "rating_caches", ["updated_at"], :name => "index_rating_caches_on_updated_at"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -118,8 +142,20 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.string   "role"
   end
 
+  add_index "users", ["created_at"], :name => "index_users_on_created_at"
+  add_index "users", ["current_sign_in_at"], :name => "index_users_on_current_sign_in_at"
+  add_index "users", ["current_sign_in_ip"], :name => "index_users_on_current_sign_in_ip"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["encrypted_password"], :name => "index_users_on_encrypted_password"
+  add_index "users", ["last_sign_in_at"], :name => "index_users_on_last_sign_in_at"
+  add_index "users", ["last_sign_in_ip"], :name => "index_users_on_last_sign_in_ip"
+  add_index "users", ["name"], :name => "index_users_on_name"
+  add_index "users", ["remember_created_at"], :name => "index_users_on_remember_created_at"
+  add_index "users", ["reset_password_sent_at"], :name => "index_users_on_reset_password_sent_at"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["role"], :name => "index_users_on_role"
+  add_index "users", ["sign_in_count"], :name => "index_users_on_sign_in_count"
+  add_index "users", ["updated_at"], :name => "index_users_on_updated_at"
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
