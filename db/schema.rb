@@ -68,6 +68,11 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.string   "youtube_url"
     t.string   "slug"
     t.string   "brand"
+    t.string   "name"
+    t.string   "summary"
+    t.string   "url"
+    t.string   "published_at"
+    t.string   "guid"
   end
 
   add_index "pins", ["brand"], :name => "index_pins_on_brand"

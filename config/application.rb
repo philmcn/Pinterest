@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
+require 'feedzirra'
 require 'will_paginate/array'
 require 'will_paginate/collection'
 if defined?(Bundler)

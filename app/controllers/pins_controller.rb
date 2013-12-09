@@ -1,15 +1,23 @@
 class PinsController < ApplicationController
+  
   before_filter :authenticate_user!, except: [:index,:show,:inf,:top]
   # GET /pins
   # GET /pins.json
   def index
     @pins = Pin.order("created_at desc").page(params[:page]).per_page(15)
-        respond_to do |format|
+     respond_to do |format|
       format.html
+      format.rss { render :layout => false }
       format.json { render json: @pins }
-    end
+   
   end
+end
+def pins_feed
 
+feed = Feedzirra::Feed.fetch_and_parse("http://feeds.feedburner.com/clecotech.in")
+@entry = feed.entries
+
+end
   def top
   
     @pins = Pin.top_rated

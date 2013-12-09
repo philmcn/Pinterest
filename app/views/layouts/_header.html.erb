@@ -18,6 +18,7 @@
           <li><%= link_to "Home", root_path %></li> 
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Top Fake Ads", top_pins_path %></li> 
+          <li><%#= link_to "Feeds", pins_feed_path() %></li> 
         </ul> 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.nil? %>

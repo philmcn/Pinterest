@@ -11,12 +11,10 @@ class Pin < ActiveRecord::Base
 
    letsrate_rateable "rating"
  opinio_subjectum
-  attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand
+  attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand,:name,:summary,:url,:published_at,:guid
 
 
-  	validates :description, presence: true
-  	validates :user_id, presence: true
-  	# validates_attachment :image, presence: true, 
+  	  	# validates_attachment :image, presence: true, 
   	# 							content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
    #                          	size: { less_than: 5.megabytes } 
   	belongs_to :user
@@ -34,6 +32,21 @@ class Pin < ActiveRecord::Base
       records = find(ids)
       sorted_records = ids.collect {|id| records.detect {|x| x.id == id}}
     end
+
+  #    def self.update_from_feed(feed_url) 
+  #   feed = Feedzirra::Feed.fetch_and_parse(feed_url)
+  #   feed.entries.each do |entry|
+       
+  #       create!(
+  #         :name         => entry.title,
+  #         :summary      => entry.summary,
+  #         :url          => entry.url,
+  #         :published_at => entry.published,
+  #         :guid         => entry.id
+  #       )
+     
+  #   end
+  # end
 
 end
 
