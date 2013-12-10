@@ -16,7 +16,7 @@ xml.rss :version => "2.0" do
         xml.brand post.brand  
         xml.description post.description
         xml.youtube_url post.youtube_url
-        xml.image_file_name post.image(:medium)
+        xml.link post.image(:medium)
         xml.created_at post.created_at
         xml.updated_at post.updated_at
         xml.user_id post.user_id
