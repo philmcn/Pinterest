@@ -64,7 +64,7 @@ Pinterest::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'funnyfakeads.com' }
   
   # configuring Amazon S3 for Paperclip
   config.paperclip_defaults = {
@@ -75,4 +75,15 @@ Pinterest::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "gmail.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: "arvindyuvasoft112@gmail.com",
+  password: "9752368663"
+}
 end
