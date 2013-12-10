@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.title pin.brand  
         xml.description pin.description
-        xml.media :thumbnail, url:pin.image(:medium), height: 50, width:50      
+        xml.media image_tag pin.image(:medium)  
         xml.pubDate pin.created_at.to_s(:rfc822)
         xml.link pin_url(pin)
       end
