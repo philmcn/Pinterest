@@ -1,10 +1,10 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.brand "Ads"
+    xml.title "Ads"
     xml.description "My Funny Fake Ads"
     xml.youtube_url "Youtube URL"
-    xml.media "Image"
+    xml.content "Image"
     xml.created_at "Created At"
     xml.updated_at "Updated At"
     xml.user_id "User Id"
@@ -13,10 +13,11 @@ xml.rss :version => "2.0" do
 
     for post in @pins
       xml.item do
-        xml.brand post.brand  
+        xml.title post.brand  
         xml.description post.description
         xml.youtube_url post.youtube_url
-        xml.media :thumbnail, url: post.image(:thumb), height: 50, width:50
+        xml.content image_tag(post.image.url(:thumb)), type: 'html'
+        #xml.media :thumbnail, url: post.image(:thumb), height: 50, width:50
         xml.created_at post.created_at
         xml.updated_at post.updated_at
         xml.user_id post.user_id
