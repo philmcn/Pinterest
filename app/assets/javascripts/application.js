@@ -30,13 +30,16 @@ $(function(){
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector: '.box',
-      });
+      columnWidth: 0,
+      gutterWidth: 0,
+      isResizable: false
+    });
   });
   var $box = $(html).find('.box');
   $(".masonry-container").append($box).masonry( 'appended', $box, true );
   $(".masonry-container").masonry('reload');
   console.log("Reloaded masonry");
-  loading = true;
+  loading = false;
 
 });
 
