@@ -1,9 +1,7 @@
+<div class="row" style="width:100%;margin-left:auto;margin-right: auto;">
 
-
-<div class="row">
-
-	<div class="col-md-6">
-		<div class="well" style="width:200%">
+	<div class="col-md-6" style="width:100%;">
+		<div class="well" >
 			<% if !@pin.image.blank? %>
 			<%= image_tag @pin.image, class: "img-responsive" %>
 			<% end %>
@@ -36,10 +34,7 @@
 			<div class="fb-comments" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-numposts="1" data-colorscheme="light"></div>	
         </div>	
 		</div>
-	</div>
-
-
-	
+	</div>	
 </div>
 
 
