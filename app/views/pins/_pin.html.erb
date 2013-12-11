@@ -29,13 +29,12 @@
 	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>
 	  </div>
 
-	<%end%><br>
-<% if !pin.brand.blank?%>
-<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
-<%end%>
-
-	<p class="description"> <%= pin.description %></p>
-
+	<%end%><br><% if !pin.description.blank?%>
+	<p class="description"> <h5><%= pin.description %></h5></p>
+	<%end%>
+		<% if !pin.brand.blank?%>
+		<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+		<%end%>
 	<b>Rating:</b><%= rating_for pin, "rating" %>
 
 	<div>

@@ -2,14 +2,19 @@
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
-
+ <fieldset style="width:38%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
+ 	<h2><b>Want to make your own Funny Fake Ads?</b></h2>
  <%=f.input :image, label: "Upload an image from your computer" %>
  <%= f.input :image_remote_url, label: "Or enter a Image URL from the web" %>
  <%= f.input :youtube_url, label: "Or enter a Video URL from the web" %>
 
  <%= f.input :description, as: :text, input_html: { rows: "3"} %>
  <%=f.input :brand, label: "Please enter brand" %>
-   <div class="form-actions">
+   <div class="form-actions" style="border-top:0px !important;">
     <%= f.button :submit,"Upload new Fake Ad", class: "btn btn-primary" %>
   </div>
+   </fieldset>
 <% end %>
+<style>
+input[type=text],input[type=url],input[type=submit],textarea{width:100% !important;}
+</style>

@@ -1,7 +1,14 @@
 <div class="footer container">
 			
 		<div class="navbar-collapse collapse">
-			<%=link_to "Funny Fake Ads", "http://www.funnyfakeads.com" %>- By Philip McNamara
-            <li><%= link_to "About", about_path %></li>          
+			<li><%= link_to "About", about_path %></li> 
+
+          <% if current_user.nil? %>
+            <li><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path %></li>
+         <% else %>
+            <li><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path %></li>
+            <% end %>
+       
      </div>
+     
 </div>
