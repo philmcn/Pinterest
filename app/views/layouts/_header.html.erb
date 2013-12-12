@@ -24,7 +24,7 @@
           <% if current_user.nil? %>
             <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path ,:class=>" btn btn-success" %>
          <% else %>
-            <li><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path %></li>
+           <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path,:class=>" btn btn-success" %>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>
