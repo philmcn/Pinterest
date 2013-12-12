@@ -7,13 +7,13 @@ xml.rss :version => "2.0" do
     for pin in @pins
       xml.item do
         xml.title pin.brand  
-        xml.description pin.description
-        xml.image do
-         xml.url pin.image(:medium)
-        end
+        xml.description pin.description        
         xml.pubDate pin.created_at.to_s(:rfc822)
         xml.link pin_url(pin)
       end
+      xml.image do
+         xml.url pin.image(:medium)
+        end
     end
   end
 end
