@@ -2,7 +2,8 @@
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
- <fieldset style="width:70%;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
+  <div style="width: 90%;">
+ <fieldset style="margin-right: auto; box-shadow: 1px 1px 13px 3px rgb(136, 136, 136); padding: 1px 22px 0px; width: 50%;">
  	<h2><b>Want to make your own Funny Fake Ads?</b></h2>
  <%=f.input :image, label: "Upload an image from your computer" %>
  <%= f.input :image_remote_url, label: "Or enter a Image URL from the web" %>
@@ -14,6 +15,16 @@
     <%= f.button :submit,"Upload new Fake Ad", class: "btn btn-primary" %>
   </div>
    </fieldset>
+</div>
+
+   <div style="float:right;">
+   <fieldset style="box-shadow: 1px 1px 13px 3px rgb(136, 136, 136); padding: 0px 22px; float: right; width: 90%; margin-top: -538px;">
+    <h2><b>Want to make your own Funny Fake Ads?</b></h2>
+   	<div class="social-button">
+        <a href="https://www.canva.com/" target="_blank"><img
+        src="/assets/Canva-Logo.png" /><p>Please click here to make your own Funny Fake Ads</p></a>
+        </div>
+   	</fieldset></div>
 <% end %>
 <style>
 input[type=text],input[type=url],input[type=submit],input[type=file],textarea{width:100% !important;}
