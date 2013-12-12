@@ -22,7 +22,7 @@
         </ul> 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.nil? %>
-            <li><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path %></li>
+            <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path ,:class=>" btn btn-success" %>
          <% else %>
             <li><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
