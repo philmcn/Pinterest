@@ -69,4 +69,4 @@ gem "cancan"
 gem 'friendly_id'
 gem "feedzirra"
 gem 'remotipart'
-gem 'social-share-button'
+

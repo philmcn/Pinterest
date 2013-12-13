@@ -13,7 +13,7 @@ class Pin < ActiveRecord::Base
  opinio_subjectum
   attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand,:name,:summary,:url,:published_at,:guid
 
-  	validates :description, presence: true
+  	validates :description, :presence => { :message => "Silly you! You need to add a description of your image!" }
   	validates :user_id, presence: true
     validates_attachment_content_type :image,
        :content_type => ['image/jpeg', 'image/png', 'image/gif','image/jpg'],

@@ -38,7 +38,7 @@
 		<% if !pin.brand.blank?%>
 		<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
 		<%end%>
-	<b>Rating:</b><%= rating_for pin, "rating" %>
+	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
 
 	<div>
 		<div id="fb-root"></div>
@@ -58,8 +58,11 @@
 		<div style="float: right;">
 			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	     <script src="http://connect.facebook.net/en_US/all.js#appId=674362825929827&xfbml=1" type="text/javascript"></script>
-		<a title="Share" href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.funnyfakeads.com/pins/<%= pin.id %>&p[images][0]=<%= pin.image.url %>&p[title]=<%= pin.brand%>&p[summary]=<%= pin.description %>"  target='_blank'><img src="assets/share.png" style="border-radius:0% !important;width:55px;height:20px;"/></a>
+		<a title="Share" href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.funnyfakeads.com/pins/<%= pin.id %>&p[images][0]=<%= pin.image.url %>&p[title]=<%= pin.description %>&p[summary]=<%= pin.brand %>"  target='_blank'><img src="assets/share.png" style="border-radius: 0% 0% 0% 0% ! important; height: 21px; width: 61px;"/></a>
 	</div>
+	
+	<%= link_to (image_tag "twitter.png",:style=>"width: 26px; float: right; margin-top: -1%; height: 23px;"), "http://twitter.com/home?status=#{pin.description} #{pins_url(pin)}", :target=>"_blank"%>
+
 </div>
 <div style="padding-top:30px">	
 		<p>
