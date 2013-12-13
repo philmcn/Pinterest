@@ -30,7 +30,10 @@ Pinterest::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
+resources :pins
+match '/pins_feed' => 'pins#pins_feed',
+      :as => :pins_feed,
+      :defaults => { :format => 'atom' }
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
