@@ -9,7 +9,9 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.title post.description
         xml.description post.brand
-        xml.image  post.image(:medium)
+        xml.image do
+        xml.url post.image
+        end
         xml.pubDate post.created_at.to_s(:rfc822)
         xml.link pin_url(post)
         xml.guid pin_url(post)
