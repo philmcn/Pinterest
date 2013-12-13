@@ -9,7 +9,7 @@ class PinsController < ApplicationController
 
      respond_to do |format|
       format.html
-      format.rss
+      format.rss { render :layout => false }
       format.xml
       format.json { render json: @pins }
    
