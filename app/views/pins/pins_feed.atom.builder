@@ -1,15 +1,19 @@
-atom_feed :language => 'en-US' do |feed|
-  feed.title"funny fake ads"
-  
-  @pins.each do |item|
-    next if item.created_at.blank?
+xml.instruct! :xml, :version => "1.0" 
+xml.rss :version => "2.0" do
+  xml.channel do
+    xml.title "Funny Fake Ad"
+    xml.description "A blog about software and chocolate"
+    xml.link pins_url
 
-    feed.entry( item ) do |entry|
-      entry.url pin_url(item)
-      entry.title item.description
-      entry.media :thumbnail, url: item.image(:thumb), height: 50, width:50
-      entry.content item.brand, :type => 'html'
-
-        end
+    for post in @pins
+      xml.item do
+        xml.title post.description
+        xml.description post.brand
+        xml.image  post.image(:medium)
+        xml.pubDate post.created_at.to_s(:rfc822)
+        xml.link pin_url(post)
+        xml.guid pin_url(post)
+      end
+    end
   end
 end
