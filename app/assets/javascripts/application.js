@@ -30,10 +30,9 @@ $(function(){
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector: '.box',
-      columnWidth: 0,
-      gutterWidth: 0,
-      isResizable: false
-    });
+      bufferPX: 60,
+      gutterWidth: 0
+          });
   });
   var $box = $(html).find('.box');
   $(".masonry-container").append($box).masonry( 'appended', $box, true );
