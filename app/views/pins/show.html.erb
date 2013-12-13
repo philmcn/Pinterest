@@ -32,7 +32,9 @@
 			</div>
 
 			<div class="fb-comments" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-numposts="1" data-colorscheme="light"></div>	
-        </div>	
+			<%= link_to (image_tag "twitter.png",:style=>"width: 26px; height: 23px; margin-top: -31%; margin-left: -90px;"), "http://twitter.com/home?status=#{@pin.description} #{pins_url(@pin)}", :target=>"_blank"%>	
+        </div>
+
 		</div>
 	</div>	
 </div>

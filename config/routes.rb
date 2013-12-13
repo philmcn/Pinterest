@@ -14,6 +14,7 @@ Pinterest::Application.routes.draw do
 
   get 'inf' => 'pins#inf', :as => 'inf'
   get 'pins_feed' => 'pins#pins_feed', :as => 'pins_feed'
+  get 'feed' => 'pins#feed', :as => 'feed'
 
   devise_for :views
 

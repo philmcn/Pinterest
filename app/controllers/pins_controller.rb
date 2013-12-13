@@ -16,17 +16,24 @@ class PinsController < ApplicationController
   end
 end
 def pins_feed 
-  @pins = Pin.order("created_at desc")
+  @pins = Pin.order("created_at desc",:limit => 20)
   # this will be our Feed's update timestamp
     respond_to do |format|
     format.html
-  format.atom { render :layout => false }
+    format.atom { render :layout => false }
     # we want the RSS feed to redirect permanently to the ATOM feed
     format.rss { redirect_to pins_feed_path(:format => :atom), :status => :moved_permanently }
   end
 # feed = Feedzirra::Feed.fetch_and_parse("http://feeds.feedburner.com/clecotech.in")
 # @entry = feed.entries
 
+end
+def feed
+  @pins = Pin.order("created_at desc",:limit => 20)
+  respond_to do |format|
+    format.html
+    format.rss { render :layout => false }
+  end
 end
   def top
   
