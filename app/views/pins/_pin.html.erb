@@ -40,39 +40,6 @@
 		<%end%>
 	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
 
-	<div>
-		<div id="fb-root"></div>
-	
-	<script>
-	(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-	</script>
-		<div style="float: left;">
-			<fb:like href="http://www.funnyfakeads.com/pins/<%= pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
-		</div>
-		<div style="float: right;">
-			<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	     <script src="http://connect.facebook.net/en_US/all.js#appId=674362825929827&xfbml=1" type="text/javascript"></script>
-		<a title="Share" href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.funnyfakeads.com/pins/<%= pin.id %>&p[images][0]=<%= pin.image.url %>&p[title]=<%= pin.description %>&p[summary]=<%= pin.brand %>"  target='_blank'><img src="assets/share.png" style="border-radius: 0% 0% 0% 0% ! important; height: 21px; width: 61px;"/></a>
-	</div>
-	
-	<%= link_to (image_tag "twitter.png",:style=>"width: 26px; float: right; margin-top: -1%; height: 23px;"), "http://twitter.com/home?status=#{pin.description} #{pins_url(pin)}", :target=>"_blank"%>
-
-</div>
-<div style="padding-top:30px">	
-		<p>
-			<strong>
-					<% if  !pin.user.nil? %>
-						  Uploaded by <%= link_to pin.user.name, pin.user %>				
-				<%end%>
-			</strong>		
-		</p>		
-	</div>
 	<%if user_signed_in? %>
 		 <% if current_user.has_role? "admin" %>
 		 	<p>

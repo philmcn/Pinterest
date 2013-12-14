@@ -25,14 +25,18 @@
             <% if  !@pin.user.nil? %>
 			<p><strong>Uploaded By-</strong><%= link_to @pin.user.name, @pin.user %></p>
 			<%end%>
-          <div style="width: auto;">
+          <div >
+          	<div>
+          	<%= link_to (image_tag "twitter.png", :style=>"height: 23px; margin-bottom: -38px; width: 26px; margin-left: 77px;"), "http://twitter.com/home?status=Here's a funny fake ad about #{@pin.brand} #{@pin.description} #{pins_url(@pin)}", :target=>"_blank"%></div>
 			<fb:like href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
 			
 			<div class="fb-share-button" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>&p[title]=<%= @pin.description %>" data-type="button" style="margin-left: 411px;">
 			</div>
 
-			<div class="fb-comments" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-numposts="1" data-colorscheme="light"></div>	
-			<%= link_to (image_tag "twitter.png",:style=>"width: 26px; height: 23px; margin-top: -31%; margin-left: -90px;"), "http://twitter.com/home?status=#{@pin.description} #{pins_url(@pin)}", :target=>"_blank"%>	
+			<div class="fb-comments" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-numposts="1" data-colorscheme="light"></div>
+				
+			
+
         </div>
 
 		</div>

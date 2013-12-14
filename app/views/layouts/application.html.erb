@@ -9,12 +9,16 @@
 	  <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag :atom, "/pins_feed" %>
 <%= auto_discovery_link_tag :rss, "/pins_feed.rss" %>
+<%= auto_discovery_link_tag :rss, "/pins.rss" %>
+<%= auto_discovery_link_tag :rss, "/feed.rss" %>
     <title>Funny Fake Ads</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <script src="../assets/jquery.infinitescroll.min.js"></script>
+       <script src="../assets/jquery.infinitescroll.js"></script>
  <script src="../assets/letsrate.js" type="text/javascript"></script>
 		<!-- Latest compiled and minified JavaScript -->
     <div id="fb-root"></div>
