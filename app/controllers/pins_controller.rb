@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   
-  before_filter :authenticate_user!, except: [:index,:show,:inf,:top]
+  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed]
   # GET /pins
   # GET /pins.json
   def index
@@ -16,7 +16,7 @@ class PinsController < ApplicationController
   end
 end
 def pins_feed 
-  @pins = Pin.order("created_at desc",:limit => 20)
+  @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
   # this will be our Feed's update timestamp
     respond_to do |format|
     format.html
@@ -29,7 +29,7 @@ def pins_feed
 
 end
 def feed
-  @pins = Pin.order("created_at desc",:limit => 20)
+ @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
   respond_to do |format|
     format.html
     format.rss { render :layout => false }
