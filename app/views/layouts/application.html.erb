@@ -7,10 +7,11 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag :atom, "/pins_feed" %>
-<%= auto_discovery_link_tag :rss, "/pins_feed.rss" %>
-<%= auto_discovery_link_tag :rss, "/pins.rss" %>
-<%= auto_discovery_link_tag :rss, "/feed.rss" %>
+    <%= auto_discovery_link_tag :atom, "/pins_feed" %>
+    <%= auto_discovery_link_tag :rss, "/pins_feed.rss" %>
+    <%= auto_discovery_link_tag :rss, "/pins.rss" %>
+    <%= auto_discovery_link_tag :rss, "/feed.rss" %>
+    <%= stylesheet_link_tag 'mobile' if mobile_device? %>
     <title>Funny Fake Ads</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -34,7 +35,6 @@
   </head>
 
   <body>
-
   	<%= render 'layouts/header' %>
 
   	<div class="container">
