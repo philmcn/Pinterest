@@ -21,9 +21,9 @@
 	});
 
 </script>
-<div class="box" style="width:261px">
+<div class="box" style="width:363px;">
 	<%if !pin.image.blank? %>
-	  <%= link_to (image_tag pin.image(:medium)), pin %> 
+	  <%= link_to (image_tag pin.image(:medium),:style=>"min-height:300px;"), pin %> 
 	<%end%> 
 	<%if !pin.youtube_url.blank? %>
       <div style="text-align:center">   
@@ -31,12 +31,16 @@
 	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>	 
 	  </div>
 	<%end%>
-	<br><% if !pin.description.blank?%>
-	<p class="description"> <h5><%= pin.description %></h5></p>
+	<br>
+	<div style="padding-top: 47px;"><% if !pin.description.blank?%>
+	<p class="description"> <strong><h4><%= pin.description %></h4></strong></p>
 	<%end%>
+</div>
 		<% if !pin.brand.blank?%>
+			<div style="padding-top: 20px;">
 		<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
 		<%end%>
+	</div>
 	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
 
 	<%if user_signed_in? %>
