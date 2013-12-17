@@ -35,10 +35,8 @@ def feed
     format.rss { render :layout => false }
   end
 end
-  def top
-  
-    @pins = Pin.top_rated
-  
+  def top  
+    @pins = Pin.top_rated  
     respond_to do |format|
       format.html
       format.json { render json: @pins }
