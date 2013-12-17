@@ -28,13 +28,10 @@
 	<%end%>
  
 	<%if !pin.youtube_url.blank? %>
-      <div style="text-align:center">
-        <% if mobile_device? %>
-      	<%= link_to youtube_embed(pin.youtube_url).html_safe, pin %>
-      	<%else%>
+      <div style="text-align:center">   
       	<%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>      	
 	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>
-	 	<%end%>
+	 
 	  </div>
 	<%end%>
 	<br><% if !pin.description.blank?%>

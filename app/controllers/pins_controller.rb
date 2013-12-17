@@ -8,8 +8,7 @@ class PinsController < ApplicationController
     @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
 
      respond_to do |format|
-      format.html
-      format.mobile
+      format.html      
       format.rss { render :layout => false }
       format.xml
       format.json { render json: @pins }
