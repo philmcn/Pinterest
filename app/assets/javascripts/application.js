@@ -30,7 +30,7 @@ $(function(){
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector: '.box',
-      bufferPX: 40,
+      bufferPX: 20,
       gutterWidth: 0
           });
   });
