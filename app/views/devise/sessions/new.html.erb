@@ -14,15 +14,14 @@
 		<div class="form-actions">
 			<div class="social">
 				<div class="social-button">
-				<a href="/auth/facebook"><img
-				src="/assets/facebook-2.png" style="width:270px;"/></a>
+				<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
 				</div>
 				<div class="social-button">
-				<a href="/auth/twitter"><img
-				src="/assets/twitter-2.png" style="width:270px;"/></a></div>
+					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
+			   </div>
 				<div class="social-button">
-				 <a href="/auth/google"><img
-				src="/assets/google-2.png" style="width:270px;"/></a> </div>
+					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
+				  </div>
 			</div>
 		</div>
 		<div class="form-actions">
@@ -74,3 +73,17 @@ input[type]{ height:50px !important;}
 }
 .form-actions{width:310px;margin:0px;}
 </style>
+
+
+<script>
+function popupCenter(url, width, height, name) {
+  var left = (screen.width/2)-(width/2);
+  var top = (screen.height/2)-(height/2);
+  return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+}
+
+$("a.popup").click(function(e) {
+  popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+  e.stopPropagation(); return false;
+});
+</script>
