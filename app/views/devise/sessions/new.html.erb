@@ -2,7 +2,7 @@
 <div class="container" style="width:100%">
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 	
-		<fieldset style="width:347px;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
+		<fieldset  style="width:347px;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:0px 20px 0px">
 			<div id="legend">
 				<h3 class="">Sign in </h3>
 			
@@ -14,14 +14,11 @@
 		<div class="form-actions">
 			<div class="social">
 				<div class="social-button">
-				<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
-				</div>
+				<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
 				<div class="social-button">
-					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
-			   </div>
+					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter", :class => "popup", :"data-width" => 600, :"data-height" => 400 %> </div>
 				<div class="social-button">
-					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google", :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
-				  </div>
+					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
 			</div>
 		</div>
 		<div class="form-actions">
@@ -86,4 +83,9 @@ $("a.popup").click(function(e) {
   popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
   e.stopPropagation(); return false;
 });
+
+  if(window.opener) {
+    window.opener.location.reload(true);
+    window.close()
+  }
 </script>
