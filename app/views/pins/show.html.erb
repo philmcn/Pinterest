@@ -9,9 +9,12 @@
 			<% if !@pin.description.blank?%>
 			<p class="description"><strong> <h3><%= @pin.description %></h3></strong></p>
 			<%end%>
+			
+			<div style="padding-top: 10px;">
 				<% if !@pin.brand.blank?%>
-				<p class="brand"><strong>Brand:</strong> <%= @pin.brand %></p>
-				<%end%>
+		<p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= @pin.brand %></h4></p>
+		<%end%>
+	</div>
 			<% if current_user == @pin.user %>
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
 			<% end %>

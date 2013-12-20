@@ -65,10 +65,9 @@ end
 
   # GET /pins/new
   # GET /pins/new.json
-  def new
-    
+  def new  
+  
     @pin = current_user.pins.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @pin }

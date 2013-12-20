@@ -7,7 +7,7 @@
 	    $container.masonry({
 	      itemSelector: '.box',
 	        bufferPX: 20,
-	       gutterWidth: 0
+	       gutterWidth:0
            
 	    });
 	  });
@@ -32,13 +32,13 @@
 	  </div>
 	<%end%>
 	<br>
-	<div style="padding-top: 47px;"><% if !pin.description.blank?%>
-	<p class="description"> <strong><h4><%= pin.description %></h4></strong></p>
-	<%end%>
+	<div style="padding-top:0px;"><% if !pin.description.blank?%>
+		<p class="description"> <strong><h3><%= pin.description %></h3></strong></p>
+		<%end%>
     </div>
 		<% if !pin.brand.blank?%>
-			<div style="padding-top: 20px;">
-		<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+			<div style="padding-top: 10px;">
+		<p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= pin.brand %></h4></p>
 		<%end%>
 	</div>
 	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->

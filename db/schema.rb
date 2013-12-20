@@ -68,11 +68,6 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.string   "youtube_url"
     t.string   "slug"
     t.string   "brand"
-    t.string   "name"
-    t.string   "summary"
-    t.string   "url"
-    t.string   "published_at"
-    t.string   "guid"
   end
 
   add_index "pins", ["brand"], :name => "index_pins_on_brand"
@@ -98,12 +93,8 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "rates", ["created_at"], :name => "index_rates_on_created_at"
-  add_index "rates", ["dimension"], :name => "index_rates_on_dimension"
   add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
-  add_index "rates", ["stars"], :name => "index_rates_on_stars"
-  add_index "rates", ["updated_at"], :name => "index_rates_on_updated_at"
 
   create_table "rating_caches", :force => true do |t|
     t.integer  "cacheable_id"
@@ -116,8 +107,6 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
-  add_index "rating_caches", ["created_at"], :name => "index_rating_caches_on_created_at"
-  add_index "rating_caches", ["updated_at"], :name => "index_rating_caches_on_updated_at"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

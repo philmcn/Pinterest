@@ -13,6 +13,10 @@
     <%= auto_discovery_link_tag :rss, "/feed.rss" %>
     <%= auto_discovery_link_tag :rss, "/pins" %>
 
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
   
     <title>Funny Fake Ads</title>
     <!-- Bootstrap core CSS -->

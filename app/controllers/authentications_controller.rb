@@ -30,7 +30,7 @@ class AuthenticationsController < ApplicationController
         end
         if exiting_user
           authentication =  exiting_user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
-          if authentication
+            if authentication
             check_authentication(authentication)
             sign_in_and_redirect(:user, exiting_user )
           end
@@ -86,17 +86,18 @@ class AuthenticationsController < ApplicationController
   def check_authentication(authentication)
     auth = request.env["omniauth.auth"]
     
-    if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google"
+    if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google_oauth2"
      authentication.auth_token = auth["credentials"]["token"]
     else
       authentication.auth_token = nil
     end
-    if auth['provider']=="linkedin" || auth['provider']=="google" || auth['provider']=="linkedin" || auth['provider']=="twitter"
-    authentication.auth_secret = auth['provider']=="facebook" ? nil : auth["extra"]["access_token"].secret
+    if auth['provider']=="linkedin" || auth['provider']=="google_oauth2" || auth['provider']=="linkedin" || auth['provider']=="twitter"
+    # debugger
+    # authentication.auth_secret = auth['provider']=="facebook" ? nil : auth["extra"]["access_token"].secret
     else
       authentication.auth_secret =nil
     end
-    if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google"
+    if auth['provider']=="facebook" || auth['provider']=="linkedin" || auth['provider']=="google_oauth2"
      authentication.user_name = auth['info']['email'] 
     elsif  auth['provider']=="twitter"
 
