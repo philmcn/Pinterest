@@ -1,58 +1,42 @@
 <div class="form-bk"><div id="fb-root"></div>
-<div class="container" style="width:100%">
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	
-		<fieldset  style="width:347px;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:0px 20px 0px">
+<%= form_for(resource, :as => resource_name, html: {class: "form-horizontal"}, :url => session_path(resource_name)) do |f| %>
+	<div  style="text-align: center;box-shadow: 1px 1px 13px 3px #888888;">
+		<div style="padding: 10px;">
 			<div id="legend">
 				<h3 class="">Sign in </h3>
-			
 		  	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-			 or( <%= link_to "Create an Account", new_registration_path(resource_name),:style=>"margin:left;" %>)<br />
-			<% end -%>
+			 		or( <%= link_to "Create an Account", new_registration_path(resource_name),:style=>"margin:left;" %>)<br />
+				<% end -%>
 		
 			</div>
-		<div class="form-actions">
+
 			<div class="social">
 				<div class="social-button">
-				<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
+					<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
 				<div class="social-button">
 					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter", :class => "popup", :"data-width" => 600, :"data-height" => 400 %> </div>
 				<div class="social-button">
 					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google_oauth2", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
 			</div>
-		</div>
-		<div class="form-actions">
-			<div class="control-group">
-		  		<%#= f.label :email, :class => 'control-label' %>
-		  		<div class="controls">
-			  		<%= f.email_field :email, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Email" %>
-			  	</div>
+			
+			<%= f.email_field :email, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Email" %>
+			<br/><br/>
+			<%= f.password_field :password, :class => 'input-xlarge', :placeholder=> "Password" %>
+			<br/><br/>
+			<% if devise_mapping.rememberable? %>
+				<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+			<% end %>
+	  	<br/><br/>
+	  	<%= f.submit "Sign In With Email", :class => 'btn btn-success' , :style=>"width: 210px" %>
+		  <br/><br/>
+			<div>
+				<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+		  		<%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: left;" %>
+		  	<%end%>
 			</div>
-			<div class="control-group">
-			  	<%#= f.label :password, :class => 'control-label' %>
-			  	<div class="controls" >
-			  		<%= f.password_field :password, :class => 'input-xlarge', :placeholder=> "Password" %>
-			  		<% if devise_mapping.rememberable? %>
-		    			<div class="checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-		  			<% end %>
-		  		</div>
-			</div>
 		</div>
-		  	<div class="form-actions">
-		  		<%= f.submit "Sign In With Email", :class => 'btn btn-success', :style=>"width:270px;"  %>
-		  	</div>		  	
-		<div>
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: left;" %>
-  <%end%>
-</div>
-		  </div>
-		</fieldset>
-	<% end %>
-<!-- <a href="/auth/linkedin"><img
-src="/assets/linkedin.png" /></a>  -->
-</div>
-</div>
+	</div>
+<% end %>
 
 <style>
 

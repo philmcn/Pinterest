@@ -1,14 +1,12 @@
 <div class="form-bk"><div id="fb-root"></div>
-<div class="container" style="width:100%">
-
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-<fieldset style="width:347px;margin-left:auto;margin-right: auto;box-shadow: 1px 1px 13px 3px #888888;padding:1px 22px 0px">
-	<div id="legend">
+  <div  style="text-align: center;box-shadow: 1px 1px 13px 3px #888888;">
+    <div style="padding: 10px;">
+	    <div id="legend">
 				<h4 class="">Create Account</h4>
 			</div>
-    <div class="social">
+      <div class="social">
         <div class="social-button">
         <a href="/auth/facebook"><img
         src="/assets/facebook3.png" style="width:270px;"/></a>
@@ -20,38 +18,30 @@
          <a href="/auth/google_oauth2"><img
         src="/assets/google3.png" style="width:270px;"/></a> </div>
       </div>
-
-    <div class="control-group">
-  <%= f.text_field :name, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Name"%></div>
-
-   <div class="control-group">
-  <%= f.email_field :email, :class => 'input-xlarge', :placeholder=> "Email"%></div>
-
-  <div class="control-group">
-  <%= f.password_field :password , :class => 'input-xlarge', :placeholder=> "Password"%></div>
-
-  <div class="control-group">
-  <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder=> "Confirm Password"%></div>
-  <%= f.hidden_field :role ,:value=>"user" %>
-  <div class="form-actions"style="width:0" >
-  	<%= f.submit "Sign up To Funny Fake Ads", :class => 'btn btn-success', :style=>"margin-left:-21px; width: 275px" %></div>
-
-  	<div >
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name), :style=>"margin-left: 0px; width: 275px; height: 44px;", :class => 'btn btn-primary'%><br />
-<% end -%>
-</div>
-<div>
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: left;" %>
-</div>
-<% end -%>
+      <%= f.text_field :name, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Name"%>
+      <br/>
+      <%= f.email_field :email, :class => 'input-xlarge', :placeholder=> "Email"%>
+      <br/>
+      <%= f.password_field :password , :class => 'input-xlarge', :placeholder=> "Password"%>
+      <br/>
+      <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder=> "Confirm Password"%>
+      <br/>
+      <%= f.hidden_field :role ,:value=>"user" %>
+  	  <%= f.submit "Sign up To Funny Fake Ads", :class => 'btn btn-success', :style=>"width: 210px" %>
+      <br/><br/>
+    	<div >
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "Sign in", new_session_path(resource_name), :style=>"width: 210px; height: 44px;", :class => 'btn btn-primary'%><br />
+        <% end -%>
+      </div>
+      <div>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+          <%= link_to "Forgot your password?", new_password_path(resource_name),:style=>"margin: left;" %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
 <% end %>
-
-
-
-</fieldset>
-</div>
 <style>
 
 .social-button{

@@ -1,42 +1,58 @@
-<%= simple_form_for(@pin, html: {class: "form-horizontal"}) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :image_file_size, class: "alert alert-error" %>
-  <%= f.full_error :image_content_type, class: "alert alert-error" %>
-   <div style="float:left;width:auto;margin-bottom:20px;">
- <fieldset style="box-shadow: 1px 1px 13px 3px rgb(136, 136, 136); padding-top: 40px;padding: 20px;">
- 	<h2><b> Upload a Funny Fake Ad</b></h2>
- <%=f.input :image, label: "Upload an image from your computer" %>
- <%= f.input :image_remote_url, label: "Or enter a Image URL from the web" %>
- <%= f.input :youtube_url, label: "Or enter a Video URL from the web" %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+      <%= simple_form_for(@pin) do |f| %>
+        <%= f.error_notification %>
+        <%= f.full_error :image_file_size, class: "alert alert-error" %>
+        <%= f.full_error :image_content_type, class: "alert alert-error" %>
+        <div style="box-shadow: 1px 1px 13px 3px rgb(136, 136, 136); padding-top: 40px;padding: 20px; ">
+          <h2><b> Upload a Funny Fake Ad</b></h2>
+            <br/>
+              <%=f.input :image, label: "Upload an image from your computer" %>
+              <%=f.input :image_remote_url, label: "Or enter a Image URL from the web" %>
+              <%=f.input :youtube_url, label: "Or enter a Video URL from the web" %>
+              <%= f.input :description, as: :text, input_html: { rows: "3"} %>
+              <%=f.input :brand , label: "Please enter brand" %>
+          <div class="form-actions" >
+           <%= f.button :submit, "Upload new Fake Ad", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="span6">
+      <div style="box-shadow: 15px 2px 13px 3px rgb(136, 136, 136); padding: 18px;">
+        <h2><b>Want to make your own Funny Fake Ads?</b></h2>
+        <div class="canva-button">
+          <a href="http://imgflip.com/memegenerator/" target="_blank">
+            <img src="/assets/profile.png" />
+            <p><b><h3>Quick and easy image editor</h3></b></p>
+          </a>
+          <p style="float:left">Fast, mobile-supported fake ad generator. Caption ads or upload your own images to make custom fake ads.</p>
+        </div>
 
- <%= f.input :description, as: :text, input_html: { rows: "3"} %>
- <%=f.input :brand, label: "Please enter brand" %>
-   <div class="form-actions" style="border-top:0px !important;">
-    <%= f.button :submit,"Upload new Fake Ad", class: "btn btn-primary" %>
+        <div class="canva-button">
+          <a href="http://imgflip.com/memegenerator/" target="_blank">
+            <img src="/assets/profile.png" />
+            <p><b><h3>More advanced, higher quality image editor</h3></b></p>
+          </a>
+          Amazingly simple graphic design
+        </div>
+        <div class="canva-button">
+          <a href="https://www.canva.com/" target="_blank">
+            <img src="/assets/Canva-Logo.png" />
+            <p><b><h3>Please click here to make your own Funny Fake Ads</h3></b></p>
+          </a>
+
+          Amazingly simple graphic design to make professional looking fake ads
+            
+        </div>
+      </div>
+    </div>
   </div>
-   </fieldset>
 </div>
- 
-   <div style="float:left;width:auto;margin-bottom:20px;">
-   <fieldset  style="width: 551px; box-shadow: 15px 2px 13px 3px rgb(136, 136, 136); padding: 18px;">
-    <h2><b>Want to make your own Funny Fake Ads?</b></h2>
-    <div class="canva-button">
-        <a href="http://imgflip.com/memegenerator/" target="_blank"><img
-        src="/assets/profile.png" /><p><b><h3>Quick and easy image editor</h3></b></p></a>
-        <p style="float:left">Fast, mobile-supported fake ad generator. Caption ads or upload your own images to make custom fake ads.</p>
-        </div>
+  
+</div>
+   
 
-         <div class="canva-button">
-        <a href="http://imgflip.com/memegenerator/" target="_blank"><img
-        src="/assets/profile.png" /><p><b><h3>More advanced, higher quality image editor</h3></b></p></a>
-        Amazingly simple graphic design
-        </p>
-        </div>
-   	<div class="canva-button">
-        <a href="https://www.canva.com/" target="_blank"><img
-        src="/assets/Canva-Logo.png" /><p><b><h3>Please click here to make your own Funny Fake Ads</h3></b></p></a>
 
-        Amazingly simple graphic design to make professional looking fake ads
-        </div>
-   	</fieldset></div>
-<% end %>
+
