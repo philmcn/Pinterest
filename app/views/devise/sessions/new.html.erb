@@ -7,18 +7,18 @@
 		  	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 			 		or( <%= link_to "Create an Account", new_registration_path(resource_name),:style=>"margin:left;" %>)<br />
 				<% end -%>
-		
+
 			</div>
 
 			<div class="social">
 				<div class="social-button">
-					<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
+					<%=link_to (image_tag "facebook-2.png",:style=>"width: 270px;" ), "/auth/facebook"%></div>
 				<div class="social-button">
-					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter", :class => "popup", :"data-width" => 600, :"data-height" => 400 %> </div>
+					<%=link_to (image_tag "twitter-2.png",:style=>"width: 270px;" ), "/auth/twitter"%> </div>
 				<div class="social-button">
-					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google_oauth2", :class => "popup", :"data-width" => 600, :"data-height" => 400 %></div>
+					<%=link_to (image_tag "google-2.png",:style=>"width: 270px;" ), "/auth/google_oauth2"%></div>
 			</div>
-			
+
 			<%= f.email_field :email, :autofocus => true, :class => 'input-xlarge', :placeholder=> "Email" %>
 			<br/><br/>
 			<%= f.password_field :password, :class => 'input-xlarge', :placeholder=> "Password" %>
