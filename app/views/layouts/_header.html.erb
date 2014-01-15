@@ -9,24 +9,27 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        
+        <%= link_to "Funny Fake Ads", root_path, class: "navbar-brand" %>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Funny Fake Ads", root_path, class: "navbar-brand" %></li>
+
        <!--    <li><%= link_to "Home", root_path %></li> 
           <li><%= link_to "About", about_path %></li> -->
-          <li><%= link_to "Most Popular Fake Ads" %></li> 
+          <li><%= link_to "Most Popular Fake Ads","#", class: "padding-top-desktop-15" %></li> 
           <li><%#= link_to "Feeds", pins_feed_path() %></li> 
         </ul> 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.nil? %>
-            <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path ,:class=>" btn btn-success" %>
+            <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path ,:class=>" btn btn-success navbar-right margin-top-desktop-7" %>
          <% else %>
-           <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path,:class=>" btn btn-success" %>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+           <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path,:class=>" btn btn-success margin-top-desktop-7" %>
+           
+            <li><%= link_to "Edit Profile", edit_user_registration_path , class: "padding-top-desktop-15"%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "padding-top-desktop-15" %></li>
+          </ul>
+          
           <% end %>
       </div>
     </div>
