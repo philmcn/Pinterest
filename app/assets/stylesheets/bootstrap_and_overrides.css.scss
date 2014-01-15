@@ -22,8 +22,11 @@
     }
     .btn{
       width: 100%;
+      margin-bottom: 10px;
     }
-
+    .navbar-inner{
+      min-width: 300px;
+    }
   }
 }
 
@@ -33,5 +36,14 @@
   }
   .margin-top-desktop-7{
     margin-top: 7px!important; 
+  }
+}
+
+.navbar-static-top{
+  button{
+    a{
+      color: white;
+      text-decoration: none;
+    }
   }
 }
