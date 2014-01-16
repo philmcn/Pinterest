@@ -1,8 +1,13 @@
 
 <% render 'pages/home' %>
-
 <div id="pins">
-	 <div class="item"><div id="postswrapper"><div class="masonry-container transitions-enabled infinite-scroll clearfix"><%= render @pins %></div></div></div>
+   <div class="item">
+      <div id="postswrapper">
+        <div class="masonry-container transitions-enabled infinite-scroll clearfix">
+          <%= render @pins %>
+        </div>
+      </div>
+    </div>
 </div>
 <br/>
 <div id="loadmoreajaxloader" style="display:none;width:100%;float:right;background-color:#eeeeee;padding:3px;"><center>Loading...<img src="assets/loader.gif" /></center></div></div>

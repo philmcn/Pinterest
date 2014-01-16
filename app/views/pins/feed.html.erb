@@ -1,59 +1,59 @@
 <script>
-	$(function(){
-	 var $container = $('.masonry-container');
+  $(function(){
+   var $container = $('.masonry-container');
 
-	  $container.imagesLoaded(function(){
-	    $container.masonry({
-	      itemSelector: '.box',
-	        bufferPX: 40,
-	       gutterWidth: 0
-           
-	    });
-	  });
-	  var $box = $(html).find('.box');
-	  $(".masonry-container").append($box).masonry( 'appended', $box, true );
-	  $(".masonry-container").masonry('reload');
-	  console.log("Reloaded masonry");
-	  loading = false;
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box',
+          bufferPX: 40,
+         gutterWidth: 0
+
+      });
+    });
+    var $box = $(html).find('.box');
+    $(".masonry-container").append($box).masonry( 'appended', $box, true );
+    $(".masonry-container").masonry('reload');
+    console.log("Reloaded masonry");
+    loading = false;
 
 
-	});
+  });
 
 </script>
 <%for pin in @pins%>
- 
-<div class="box masonry-brick" style="">
+  <div class="box masonry-brick" style="">
 
-	<%if !pin.image.blank? %>
-	  <%= link_to (image_tag pin.image(:medium)), pin %> 
-	<%end%>
- 
-	<%if !pin.youtube_url.blank? %>
+    <%if !pin.image.blank? %>
+      <%= link_to (image_tag pin.image(:medium)), pin %>
+    <%end%>
+
+    <%if !pin.youtube_url.blank? %>
       <div style="text-align:center">
         <% if mobile_device? %>
-      	<%= link_to youtube_embed(pin.youtube_url).html_safe, pin %>
-      	<%else%>
-      	<%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>      	
-	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>
-	 	<%end%>
-	  </div>
-	<%end%>
-	<br><% if !pin.description.blank?%>
-	<p class="description"> <h5><%= pin.description %></h5></p>
-	<%end%>
-		<% if !pin.brand.blank?%>
-		<p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
-		<%end%>
-	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
+          <%= link_to youtube_embed(pin.youtube_url).html_safe, pin %>
+        <%else%>
+          <%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>
+        <div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>
+        <%end%>
+      </div>
+    <%end%>
+    <br>
+    <% if !pin.description.blank?%>
+      <p class="description"> <h5><%= pin.description %></h5></p>
+    <%end%>
+    <% if !pin.brand.blank?%>
+      <p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+    <%end%>
+    <!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
 
-	<%if user_signed_in? %>
-		 <% if current_user.has_role? "admin" %>
-		 	<p>
-			<%= link_to 'Edit', edit_pin_path(pin) %> 
-			<%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</p>
-		  <% end %>
-  <%end%>
-</div>
+    <%if user_signed_in? %>
+       <% if current_user.has_role? "admin" %>
+        <p>
+        <%= link_to 'Edit', edit_pin_path(pin) %>
+        <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <% end %>
+    <%end%>
+  </div>
 
-  <%end%>
+<%end%>
