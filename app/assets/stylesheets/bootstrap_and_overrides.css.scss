@@ -27,7 +27,7 @@
       margin-bottom: 10px;
     }
     .navbar-inner{
-      min-width: 590px;
+      min-width: 360px;
 
     }
   }
@@ -38,6 +38,18 @@
   .container{
     padding-left: 0!important;
     padding-right: 0!important;
+  }
+  .fb-comments{
+    min-width: 320px;
+    width: 100%!important;
+    span{
+      min-width: 320px!important;
+      width: 100%!important;
+    }
+  }
+  iframe{
+    min-width: 320px!important;
+    width: 100%!important;
   }
 }
 

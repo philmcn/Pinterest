@@ -1,4 +1,4 @@
-<div class="well"style="width:100%;margin-left:auto;margin-right: auto;padding:auto;padiing-top:auto;min-width:590px;" >
+<div class="well"style="width:100%;margin-left:auto;margin-right: auto;padding:auto;padiing-top:auto;min-width:360px;" >
 	<% if !@pin.image.blank? %>
 		<%= image_tag @pin.image, class: "img-responsive" %>
 	<% end %>
@@ -43,7 +43,7 @@
 		<a title="Share" href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.funnyfakeads.com/pins/<%= @pin.id %>&p[images][0]=<%= @pin.image.url %>&p[title]=<%= @pin.description %>&p[summary]=<%= @pin.brand %>"  target='_blank'><img src="../assets/share.png" style="border-radius: 0% 0% 0% 0% ! important; height: 21px; width: 61px;"/></a>
 		<%= link_to (image_tag "twitter.png",:style=>"border-radius: 0% 0% 0% 0% ! important;width: 26px; height: 23px; margin-top: 0%; margin-left: 0%;"), "http://twitter.com/home?status=#{@pin.description} #{pins_url(@pin)}", :target=>"_blank"%>
 	</div>     
-	<div class="fb-comments" data-href="http://www.funnyfakeads.com/pins" data-float="left" data-numposts="1" data-colorscheme="light"></div>		
+	<div class="fb-comments" style="width:100%;" data-href="http://www.funnyfakeads.com/pins" data-float="left" data-numposts="1" data-colorscheme="light"></div>		
 
 </div>
 
