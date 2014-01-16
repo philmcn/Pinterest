@@ -1,54 +1,56 @@
 <%=javascript_include_tag 'letsrate'%>
 <script>
-	$(function(){
-	 var $container = $('.masonry-container');
+  $(function(){
+   var $container = $('.masonry-container');
 
-	  $container.imagesLoaded(function(){
-	    $container.masonry({
-	      itemSelector: '.box',
-	        bufferPX: 20,
-	       gutterWidth:0
-           
-	    });
-	  });
-	  var $box = $(html).find('.box');
-	  $(".masonry-container").append($box).masonry( 'appended', $box, true );
-	  $(".masonry-container").masonry('reload');
-	  console.log("Reloaded masonry");
-	  loading = false;
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box',
+          bufferPX: 20,
+         gutterWidth:0
+
+      });
+    });
+    var $box = $(html).find('.box');
+    $(".masonry-container").append($box).masonry( 'appended', $box, true );
+    $(".masonry-container").masonry('reload');
+    console.log("Reloaded masonry");
+    loading = false;
 
 
-	});
+  });
 
 </script>
 <div class="box" style="width:363px;">
-	<%if !pin.image.blank? %>
-	  <%= link_to (image_tag pin.image(:medium),:style=>"min-height:300px;"), pin %> 
-	<%end%> 
-	<%if !pin.youtube_url.blank? %>
-      <div style="text-align:center">   
-      	<%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>      	
-	 	<div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %></div>	 
-	  </div>
-	<%end%>
-	<br>
-	<div style="padding-top:0px;"><% if !pin.description.blank?%>
-		<p class="description"> <strong><h3><%= pin.description %></h3></strong></p>
-		<%end%>
+  <%if !pin.image.blank? %>
+    <%= link_to (image_tag pin.image(:medium),:style=>"min-height:300px;"), pin %>
+  <%end%>
+  <%if !pin.youtube_url.blank? %>
+    <div style="text-align:center">
+      <%= link_to youtube_embed_image(pin.youtube_url).html_safe, pin %>
+      <div ><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %>
+      </div>
     </div>
-		<% if !pin.brand.blank?%>
-			<div style="padding-top: 10px;">
-		<p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= pin.brand %></h4></p>
-		<%end%>
-	</div>
-	<!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
+  <%end%>
+  <br>
+  <div style="padding-top:0px;"><% if !pin.description.blank?%>
+    <p class="description"> <strong><h3><%= pin.description %></h3></strong></p>
+    <%end%>
+  </div>
+  <% if !pin.brand.blank?%>
+    <div style="padding-top: 10px;">
+      <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= pin.brand %></h4></p>
+    </div>
+  <%end%>
 
-	<%if user_signed_in? %>
-		 <% if current_user.has_role? "admin" %>
-		 	<p>
-			<%= link_to 'Edit', edit_pin_path(pin) %> 
-			<%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</p>
-		  <% end %>
+  <!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
+
+  <%if user_signed_in? %>
+     <% if current_user.has_role? "admin" %>
+      <p>
+      <%= link_to 'Edit', edit_pin_path(pin) %>
+      <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+      <% end %>
   <%end%>
 </div>
