@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
 	  <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
 
-  
+
     <title>Funny Fake Ads</title>
     <!-- Bootstrap core CSS -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
 
 
     <script src="../assets/jquery.infinitescroll.min.js"></script>
-    <script src="../assets/jquery.infinitescroll.js"></script>       
+    <script src="../assets/jquery.infinitescroll.js"></script>
     <script src="../assets/letsrate.js" type="text/javascript"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
@@ -50,7 +50,7 @@
           <%= msg %>
         <% end -%>
 			<% end %>
-			
+
 			<%= yield %>
 
     </div><!-- /.container -->
@@ -59,7 +59,7 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
+    <!-- Placed at the end of the document so the pages load faster
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     -->
