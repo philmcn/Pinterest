@@ -31,6 +31,6 @@
     width: 100% !important;
   }
   .masonry-brick img {
-    min-width: 100% !important;
+    /*min-width: 100% !important;*/
   }
 }
