@@ -18,3 +18,19 @@
  *= require_self
  *= require_tree .
 */
+.navbar-static-top .navbar-inner {
+  min-width: 0px;
+}
+
+.btn-signin {
+  white-space: normal !important;
+}
+
+@media (max-width: 360px){
+  .masonry-brick {
+    width: 100% !important;
+  }
+  .masonry-brick img {
+    min-width: 100% !important;
+  }
+}
