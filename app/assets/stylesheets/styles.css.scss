@@ -24,7 +24,7 @@ $navbarBackground: white;
 	color: #333
 	a {
 		color: #777
-	}	
+	}
 }
 
 /* Required for jQuery Masonry */
@@ -60,3 +60,75 @@ $navbarBackground: white;
     width: auto !important;
 }
 input[type]{ height:30px !important;}
+
+
+/*======Sign-in======*/
+.sign-in{
+  .form-group {
+    margin-bottom: 10px;
+    padding: 0 15px;
+  }
+  input:not([type='checkbox']) {
+    width: 270px;
+    max-width: 100%;
+
+  }
+  input[type="checkbox"] {
+    margin: 0px 0 0;
+    height: auto !important;
+  }
+}
+.sign-up{
+  margin-bottom: 8px;
+  .form-group {
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+  input:not([type='checkbox']) {
+    width: 270px;
+    max-width: 100%;
+
+  }
+  input[type="checkbox"] {
+    margin: 0px 0 0;
+    height: auto !important;
+  }
+}
+.edit-profile{
+  input[type="text"],input[type="email"],input[type="password"] {
+    width: 270px;
+    max-width: 100%;
+
+  }
+  .form-actions {
+    padding: 19px 0px 20px;
+    width: 270px;
+    max-width: 100%;
+  }
+}
+.pin-new{
+  .form-actions {
+    padding: 19px 0px 20px;
+  }
+  input[type="text"],input[type="url"],textarea {
+    width: 270px;
+    max-width: 100%;
+
+  }
+  .pin-box{
+    min-height: 640px;
+  }
+  @media (max-width: 979px){
+    [class*="span"]{
+      float: none;
+      display: block;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  input[type="file"] {
+    line-height: 23px;
+  }
+
+}
+/*======End Sign-in======*/
