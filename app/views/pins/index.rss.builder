@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
         xml.title post.description
         xml.description {
           if !post.image.blank?
-            xml.cdata!(link_to (image_tag post.image(:medium),width: 130), post)
+            xml.cdata!(link_to image_tag(post.image(:medium),width: 130), post)
           end
           if !post.youtube_url.blank?
             xml.cdata!(link_to youtube_embed_image_rss(post.youtube_url).html_safe, post)
