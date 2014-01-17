@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Funny Fake Ads</title>
+    <description>Funny Fake Ads</description>
+    <link><%= pins_url %></link>
+    <% @pins.each do |pin| %>
+      <item>
+        <title><%= pin.description %></title>
+        <description>
+          <![CDATA[
+            <%if !pin.image.blank? %>
+              <%= link_to (image_tag pin.image(:medium),:width => "130"), pin %>
+            <%end%>
+            <%if !pin.youtube_url.blank? %>
+              <%= link_to youtube_embed_image_rss(pin.youtube_url).html_safe, pin %>
+            <%end%>
+            </br>
+            <%= pin.brand %>
+          ]]>
+        </description>
+        <pubDate><%= pin.created_at.to_s(:rfc822) %></pubDate>
+        <link><%= pin_url(pin) %></link>
+        <guid><%= pin_url(pin) %></guid>
+      </item>
+    <% end %>
+  </channel>
+</rss>
