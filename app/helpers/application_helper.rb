@@ -1,16 +1,16 @@
 module ApplicationHelper
-	def youtube_embed(youtube_url)	
+	def youtube_embed(youtube_url)
 		if youtube_url[/youtu\.be\/([^\?]*)/]
 	    youtube_id = $1
 	  else
 	    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
 	    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
 	    youtube_id = $5
-	  end	  
+	  end
 		 %Q{<iframe title="YouTube video player" width="100%" height="360px" src="http://www.youtube.com/embed/#{ youtube_id }?rel=0&autoplay=1" frameborder="0" target='_parent' allowfullscreen ></iframe>}
-		
+
 	end
-   
+
     def youtube_embed_image(youtube_url)
 	  if youtube_url[/youtu\.be\/([^\?]*)/]
 	    youtube_id = $1
@@ -32,7 +32,7 @@ module ApplicationHelper
 	    youtube_id = $5
 	  end
 
-	  %Q{<img width = "130" src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
+	  %Q{<img width="130" height="80" src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
 	end
 
 def javascript(*args)
@@ -49,6 +49,6 @@ end
 
 
  #          end
-        
+
 
 end
