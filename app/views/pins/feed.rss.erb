@@ -10,10 +10,10 @@
         <description>
           <![CDATA[
             <%if !pin.image.blank? %>
-              <%= link_to "No Image", pin %>
+              <%= link_to (image_tag pin.image(:medium),:width => "130", :height => 80), pin %>
             <%end%>
             <%if !pin.youtube_url.blank? %>
-              <%= link_to "No Image", pin %>
+              <%= link_to youtube_embed_image_rss(pin.youtube_url).html_safe, pin %>
             <%end%>
             </br>
             <%= pin.brand %>
