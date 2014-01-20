@@ -19,7 +19,6 @@
             <%= pin.brand %>
           ]]>
         </description>
-        <enclosure url="http://reasontv-video.s3.amazonaws.com/reasontv_video_222433.mp4" length="73307679" type="video/mp4"/>
         <pubDate><%= pin.created_at.to_s(:rfc822) %></pubDate>
         <link><%= pin_url(pin) %></link>
         <guid><%= pin_url(pin) %></guid>
