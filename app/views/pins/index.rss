@@ -19,6 +19,9 @@
             <%= pin.brand %>
           ]]>
         </description>
+        <test>
+          <%= pin.youtube_url %>
+        </test>
         <content:encoded>
           <![CDATA[
             <% unless pin.youtube_url.blank? %>
