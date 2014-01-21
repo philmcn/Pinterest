@@ -63,6 +63,9 @@
 }
 
 .navbar-static-top{
+  .navbar-collapse:before, .navbar-collapse:after{
+    content: none;
+  }
   button{
     a{
       color: white;
