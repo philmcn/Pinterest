@@ -19,16 +19,6 @@
             <%= pin.brand %>
           ]]>
         </description>
-        <test>
-          <%= pin.youtube_url %>
-        </test>
-        <content:encoded>
-          <![CDATA[
-            <% unless pin.youtube_url.blank? %>
-              <%= youtube_embed(pin.youtube_url).html_safe %>
-            <% end %>
-          ]]>
-        </content:encoded>
         <pubDate><%= pin.created_at.to_s(:rfc822) %></pubDate>
         <link><%= pin_url(pin) %></link>
         <guid><%= pin_url(pin) %></guid>
