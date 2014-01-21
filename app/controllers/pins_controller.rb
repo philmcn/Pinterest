@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  
+
   before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed]
   # GET /pins
   # GET /pins.json
@@ -8,14 +8,15 @@ class PinsController < ApplicationController
     @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
 
      respond_to do |format|
-      format.html      
+      format.html
       format.rss { render :layout => false }
       format.xml
       format.json { render json: @pins }
-   
+
   end
 end
-def pins_feed 
+
+def pins_feed
   @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
   # this will be our Feed's update timestamp
     respond_to do |format|
@@ -33,10 +34,11 @@ def feed
   respond_to do |format|
     format.html
     format.rss { render :layout => false }
+    format.atom { render :layout => false }
   end
 end
-  def top  
-    @pins = Pin.top_rated  
+  def top
+    @pins = Pin.top_rated
     respond_to do |format|
       format.html
       format.json { render json: @pins }
@@ -65,8 +67,8 @@ end
 
   # GET /pins/new
   # GET /pins/new.json
-  def new  
-  
+  def new
+
     @pin = current_user.pins.new
     respond_to do |format|
       format.html # new.html.erb
@@ -82,7 +84,7 @@ end
   # POST /pins
   # POST /pins.json
   def create
-    
+
     @pin = current_user.pins.new(params[:pin])
 
     respond_to do |format|
@@ -115,7 +117,7 @@ end
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
-   
+
     @pin = Pin.find(params[:id])
     @pin.destroy
 

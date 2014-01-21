@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<feed version="2.0" xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/'>
   <channel>
     <title>Funny Fake Ads</title>
     <description>Funny Fake Ads</description>
@@ -19,6 +19,10 @@
             <%= pin.brand %>
           ]]>
         </description>
+        <media:group>
+          <media:content url="<%= pin.youtube_url %>" type='application/x-shockwave-flash' medium='video' />
+          <media:player url="<%= pin.youtube_url %>" />
+        </media:group>
         <pubDate><%= pin.created_at.to_s(:rfc822) %></pubDate>
         <link><%= pin_url(pin) %></link>
         <guid><%= pin_url(pin) %></guid>
