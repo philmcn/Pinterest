@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom'
+  xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/'
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <title>Funny Fake Ads</title>
+  <% @pins.each do |pin| %>
+    <entry>
+      <id><%= pin.id %></id>
+      <title><%= pin.description %></title>
+      <content type='text'><%= pin.brand %></content>
+      <link><%= pin_url(pin) %></link>
+      <published><%= pin.created_at.iso8601 %></published>
+      <updated><%= pin.updated_at.iso8601 %></updated>
+      <media:group>
+        <media:content url="<%= pin.youtube_url %>" type="application/x-shockwave-flash" isDefault="true" />
+        <media:player url="<%= pin.youtube_url %>" />
+      </media:group>
+    </entry>
+  <% end %>
+</feed>
