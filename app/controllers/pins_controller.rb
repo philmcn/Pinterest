@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   # GET /pins.json
   def index
 
-    @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
+    @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
 
      respond_to do |format|
       format.html      
@@ -16,7 +16,7 @@ class PinsController < ApplicationController
   end
 end
 def pins_feed 
-  @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
+  @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
   # this will be our Feed's update timestamp
     respond_to do |format|
     format.html
@@ -29,7 +29,7 @@ def pins_feed
 
 end
 def feed
- @pins = Pin.order("created_at desc").page(params[:page]).per_page(25)
+ @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
   respond_to do |format|
     format.html
     format.rss { render :layout => false }
