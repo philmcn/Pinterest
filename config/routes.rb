@@ -15,12 +15,13 @@ Pinterest::Application.routes.draw do
   get 'inf' => 'pins#inf', :as => 'inf'
   get 'pins_feed' => 'pins#pins_feed', :as => 'pins_feed'
   get 'feed' => 'pins#feed', :as => 'feed'
+  get 'new_feed' => 'pins#feed', :as => 'new_feed'
 
   devise_for :views
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   match 'users/:id' => 'users#show', as: :user
-  
+
   get 'about' => 'pages#about'
 
   root :to => 'pins#index'

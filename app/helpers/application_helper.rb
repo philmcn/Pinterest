@@ -32,7 +32,8 @@ module ApplicationHelper
 	    youtube_id = $5
 	  end
 
-	  %Q{<img width="130" height="80" src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
+	  #%Q{<img src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
+    %Q{<iframe width="624" height="351" type="text/html" src="#{youtube_url.gsub("http:", "").gsub("https:", "")}" frameborder="0"></iframe><img src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
 	end
 
 def javascript(*args)
