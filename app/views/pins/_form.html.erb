@@ -13,6 +13,7 @@
               <%=f.input :youtube_url, label: "Or enter a Video URL from the web<br/>For YouTube Videos, go to Share and then copy the URL" %>
               <%= f.input :description, as: :text, input_html: { rows: "3"} %>
               <%=f.input :brand , label: "Please enter brand" %>
+              <%=f.input :created_by , label: "Created By" %>
           <div class="form-actions" >
            <%= f.button :submit, "Upload new Fake Ad", class: "btn btn-primary" %>
           </div>

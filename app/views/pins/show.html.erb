@@ -21,7 +21,10 @@
     <% end %>
     <!-- <b>Rating:</b> <%= rating_for @pin, "rating" %>   -->
     <% if  !@pin.user.nil? %>
-      <p><strong>Uploaded By-</strong><%= link_to @pin.user.name, @pin.user %></p>
+      <p><strong>Uploaded By - </strong><%= link_to @pin.user.name, @pin.user %></p>
+    <%end%>
+    <% if  !@pin.created_by.blank? %>
+      <p><strong>Created By - <%=@pin.created_by %></p>
     <%end%>
 
     <div id="fb-root"></div>

@@ -43,6 +43,12 @@
     </div>
   <%end%>
 
+  <% if !pin.created_by.blank?%>
+    <div style="padding-top: 10px;">
+      <p class="brand"><strong><h4>Created By:</h4></strong> <h4 style="margin-top: -29px; margin-left: 109px;"><%= pin.created_by %></h4></p>
+    </div>
+  <%end%>
+
   <!-- <b>Rating:</b><%= rating_for pin, "rating" %> -->
 
   <%if user_signed_in? %>

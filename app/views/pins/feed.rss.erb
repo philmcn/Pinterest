@@ -17,6 +17,10 @@
             <%end%>
             </br>
             <%= pin.brand %>
+            <%if !pin.created_by.blank? %>
+            </br>
+            <%= "created by #{pin.created_by}" %>
+            <%end%>
           ]]>
         </description>
         <pubDate><%= pin.created_at.to_s(:rfc822) %></pubDate>

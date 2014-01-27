@@ -11,16 +11,18 @@ class Pin < ActiveRecord::Base
 
    letsrate_rateable "rating"
  opinio_subjectum
-  attr_accessible :description, :image, :image_remote_url, :youtube_url,:brand,:name,:summary,:url,:published_at,:guid
+  attr_accessible :description, :image, :image_remote_url, :youtube_url,
+                  :brand,:name,:summary,:url,:published_at,:guid,
+                  :created_by
 
   	validates :description, :presence => { :message => "Silly you! You need to add a description of your image!" }
   	validates :user_id, presence: true
     validates_attachment_content_type :image,
        :content_type => ['image/jpeg', 'image/png', 'image/gif','image/jpg'],
        :message      => ",Please enter valid image type path"
-  	  	# validates_attachment :image, presence: true, 
+  	  	# validates_attachment :image, presence: true,
   	# 							content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
-   #                          	size: { less_than: 5.megabytes } 
+   #                          	size: { less_than: 5.megabytes }
      	belongs_to :user
   	has_attached_file :image, styles: { medium: "320x240"}
 
@@ -28,7 +30,7 @@ class Pin < ActiveRecord::Base
 
   	def image_remote_url=(url_value)
   			self.image = URI.parse(url_value) unless url_value.blank?
-  		super	
+  		super
   	end
 
     def self.top_rated
@@ -37,10 +39,10 @@ class Pin < ActiveRecord::Base
       sorted_records = ids.collect {|id| records.detect {|x| x.id == id}}
     end
 
-  #    def self.update_from_feed(feed_url) 
+  #    def self.update_from_feed(feed_url)
   #   feed = Feedzirra::Feed.fetch_and_parse(feed_url)
   #   feed.entries.each do |entry|
-       
+
   #       create!(
   #         :name         => entry.title,
   #         :summary      => entry.summary,
@@ -48,7 +50,7 @@ class Pin < ActiveRecord::Base
   #         :published_at => entry.published,
   #         :guid         => entry.id
   #       )
-     
+
   #   end
   # end
 
