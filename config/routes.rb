@@ -9,6 +9,7 @@ Pinterest::Application.routes.draw do
 
   resources :pins do
     get :top, on: :collection
+    get :search, on: :collection
     opinio
   end
 

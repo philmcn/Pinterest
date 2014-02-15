@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed]
+  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed, :search]
   # GET /pins
   # GET /pins.json
   def index
@@ -125,5 +125,19 @@ end
       format.html { redirect_to pins_url }
       format.json { head :no_content }
     end
+  end
+  
+  def search
+    @pins = Pin.where("description like :search or slug like :search", 
+              {search: '%' + params[:search].to_s + '%'})
+              .page(params[:page]).per_page(10)
+    
+    
+     respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+      format.xml
+      format.json { render json: @pins }
+    end  
   end
 end

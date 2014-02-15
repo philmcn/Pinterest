@@ -1,0 +1,39 @@
+<% if @pins.empty? %>
+No result found
+<% else %>
+<div>
+  <ul style="list-style: none">
+  <% @pins.each_with_index do |pin, index| %>
+    <li>
+      <div>
+        <div class="pull-left" style="margin-right: 15px;">
+          <% if !pin.image.blank? %>
+            <%= link_to (image_tag pin.image(:medium),:style=>"height: 120px; width: 160px"), pin%>
+          <%end%>
+        </div>
+        <div style="padding-top:0px;"><% if !pin.description.blank?%>
+          <p class="description"> <strong><h3><%= link_to pin.description, pin, class: "pin-href" %></h3></strong></p>
+          <%end%>
+        </div>
+        <% if !pin.brand.blank?%>
+          <div style="padding-top: 10px;">
+            <p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+          </div>
+        <%end%>      
+        <% if !pin.created_by.blank?%>
+          <div style="padding-top: 10px;">
+            <p class="brand"><strong>Created By:</strong> <%= pin.created_by %></p>
+          </div>
+        <%end%>
+      </div>
+    </li>
+    <div style="clear:both"></div>
+    <%if index != (@pins.size - 1) %>
+      <div style="border-top: 1px dotted gray; margin-top: 10px; margin-bottom: -10px;"></div>
+    <%end%>  
+    <div style="clear:both"></div>
+  <%end%>  
+  </ul>
+</div>
+<%= will_paginate @pins%>
+<% end %>
