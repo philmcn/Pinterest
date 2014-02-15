@@ -128,8 +128,8 @@ end
   end
   
   def search
-    @pins = Pin.where("description like :search or slug like :search", 
-              {search: '%' + params[:search].to_s + '%'})
+    @pins = Pin.where("lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
+              {search: '%' + params[:search].to_s.downcase + '%'})
               .page(params[:page]).per_page(10)
     
     
