@@ -69,7 +69,7 @@
         
         <%if !pin.youtube_url.blank? %>
           <div class="pull-left" style="margin-right: 5px;">
-            <%= link_to raw("<div style='height: 120px; width: 160px'>" + youtube_embed_image(pin.youtube_url).html_safe + "</div>"), pin %>
+            <%= link_to raw("<div style='height: 80px; width: 120px'>" + youtube_embed_image(pin.youtube_url).html_safe + "</div>"), pin %>
             <div style="width: 120px; height: 1px;"><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %>
             </div>
           </div>
