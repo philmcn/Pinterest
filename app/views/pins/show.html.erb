@@ -1,4 +1,4 @@
-<div class="pin-show">
+<div class="pin-show <%=@relative_pins.empty? ? "" : "span8 ml-sm" %>">
 <div class="well"style="width:100%;margin-left:auto;margin-right: auto;padding:auto;padiing-top:auto;" >
   <% if !@pin.image.blank? %>
     <%= image_tag @pin.image, class: "img-responsive" %>
@@ -24,7 +24,7 @@
       <p><strong>Uploaded By - </strong><%= link_to @pin.user.name, @pin.user %></p>
     <%end%>
     <% if  !@pin.created_by.blank? %>
-      <p><strong>Created By - <%=@pin.created_by %></p>
+      <p><strong>Created By - </strong><%=@pin.created_by %></p>
     <%end%>
 
     <div id="fb-root"></div>
@@ -51,6 +51,51 @@
     <div class="fb-comments" style="width:100%;" data-href="http://www.funnyfakeads.com/pins" data-float="left" data-numposts="1" data-colorscheme="light"></div>
 
 </div>
-
 </div>
 
+
+<% if !@relative_pins.empty? %>
+ <div class="span4 ml-sm">
+  <h3 class="relative-ads-title">Relatived Ads</h3> 
+  <ul style="list-style: none">
+  <% @relative_pins.each_with_index do |pin, index| %>
+    <li>
+      <div>
+        <% if !pin.image.blank? %>
+         <div class="pull-left" style="margin-right: 5px;">
+          <%= link_to (image_tag pin.image(:medium),:style=>"height: 80px; width: 120px"), pin%>
+          </div>
+        <%end%>
+        
+        <%if !pin.youtube_url.blank? %>
+          <div class="pull-left" style="margin-right: 5px;">
+            <%= link_to raw("<div style='height: 120px; width: 160px'>" + youtube_embed_image(pin.youtube_url).html_safe + "</div>"), pin %>
+            <div style="width: 120px; height: 1px;"><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %>
+            </div>
+          </div>
+        <%end%>  
+        <div style="padding-top:0px;"><% if !pin.description.blank?%>
+          <p class="description"> <strong><h3><%= link_to truncate(pin.description, length: 20), pin, class: "pin-href" %></h3></strong></p>
+          <%end%>
+        </div>
+        <% if !pin.brand.blank?%>
+          <div>
+            <p class="brand"><strong>Brand:</strong> <%= truncate(pin.brand, length: 20) %></p>
+          </div>
+        <%end%>      
+        <% if !pin.created_by.blank?%>
+          <div>
+            <p class="brand"><strong>Created By:</strong> <%= truncate(pin.created_by, length: 20) %></p>
+          </div>
+        <%end%>
+      </div>
+    </li>
+    <div style="clear:both"></div>
+    <%if index != (@relative_pins.size - 1) %>
+      <div style="border-top: 1px dotted gray; margin-top: 10px; margin-bottom: -10px;"></div>
+    <%end%>  
+    <div style="clear:both"></div>
+  <%end%>  
+  </ul>   
+ </div> 
+<% end %>

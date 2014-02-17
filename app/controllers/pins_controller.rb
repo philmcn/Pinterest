@@ -58,7 +58,16 @@ end
   def show
 
     @pin = Pin.find(params[:id])
-
+    @relative_pins = []
+    if !@pin.brand.blank?
+      @relative_pins += Pin.where(brand: @pin.brand).where("id != ?", @pin.id)
+    end
+    
+    if !@pin.created_by.blank?
+      @relative_pins += Pin.where(brand: @pin.brand).where("id != ?", @pin.id)
+    end
+    
+    @relative_pins.uniq!  
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @pin }
