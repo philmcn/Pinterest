@@ -20,7 +20,7 @@
           <li><%= link_to "Most Popular Fake Ads",root_path, class: "padding-top-desktop-15" %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">        
-          <li>            
+          <li id="searchFormLi">            
             <form id="searchForm" action="/pins/search" method="get">
               <input type="textbox" name="search" placeholder="Search Brands and Ads.." value="<%= params[:search] %>" class="form-control input-xlarge navbar-right margin-top-desktop-7-custom search-textbox">
               <input type="submit" class="search-btn" value=""/>

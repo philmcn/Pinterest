@@ -161,13 +161,30 @@ input[type]{ height:30px !important;}
 } 
 
 input.search-btn{
-  background: url("search-icon.png");
-  width: 25px !important;
-  height: 25px !important;
+  background-image: url("search_icon.png");
+  width: 30px !important;
+  height: 30px !important;
   background-size: 25px 25px;
   border: none;
   background-repeat: no-repeat;
+  background-color: blue;
+  background-position: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   position: absolute;
-  right: 7px;
-  top: 12px;
+  top: 9px;
+  right: 0px;
+}
+
+#searchFormLi {
+  margin-right: 5px;
+}
+.form-control.search-textbox {
+  min-width: 250px;
+}
+
+@media (max-width: 460px) {
+  .form-control.search-textbox {
+    width: 94%;
+  }
 }
