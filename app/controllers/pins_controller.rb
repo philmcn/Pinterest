@@ -142,6 +142,16 @@ end
               .page(params[:page]).per_page(10)
     
     
+    if @pins.empty?
+      @random_pins = []
+      max_random = rand(5) + 5
+      pins = Pin.all
+      max_random = pins.size if max_random >= pins.size
+      while(@random_pins.size < max_random)
+        @random_pins.push(pins[rand(pins.size)])
+      end
+      @random_pins.uniq!  
+    end
      respond_to do |format|
       format.html
       format.rss { render :layout => false }

@@ -16,8 +16,9 @@
       <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= @pin.brand %></h4></p>
     <%end%>
   </div>
-    <% if (current_user == @pin.user) || (current_user.has_role? "admin")%>
-      <%= link_to 'Edit', edit_pin_path(@pin) %>
+    <% if (current_user == @pin.user) || (current_user && (current_user.has_role? "admin"))%>
+      <%= link_to 'Edit', edit_pin_path(@pin) %> - 
+      <%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
     <!-- <b>Rating:</b> <%= rating_for @pin, "rating" %>   -->
     <% if  !@pin.user.nil? %>
@@ -56,7 +57,7 @@
 
 <% if !@relative_pins.empty? %>
  <div class="span4 ml-sm">
-  <h3 class="relative-ads-title">Relatived Ads</h3> 
+  <h3 class="relative-ads-title">Related Ads</h3> 
   <ul style="list-style: none">
   <% @relative_pins.each_with_index do |pin, index| %>
     <li>
