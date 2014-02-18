@@ -16,7 +16,7 @@
       <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= @pin.brand %></h4></p>
     <%end%>
   </div>
-    <% if current_user == @pin.user %>
+    <% if (current_user == @pin.user) || (current_user.has_role? "admin")%>
       <%= link_to 'Edit', edit_pin_path(@pin) %>
     <% end %>
     <!-- <b>Rating:</b> <%= rating_for @pin, "rating" %>   -->
