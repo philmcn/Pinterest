@@ -1,0 +1,29 @@
+<h2 style="text-align: center">Categories</h2>
+<div class="row-fluid">
+<div class="span3">  
+<form id="controlCategory" action="" method="get" style="position: relative;width:100%">
+	<input type="textbox" name="search" placeholder="Name" value="" class="input-xlarge control-category" style="width:100%"/>
+	<input type="submit" class="search-btn no-top" value="">
+</form>
+</div>
+<div class="span9">
+<div style="float:right">  
+<a class="btn btn-success btn-signin" href="/categories/pins.html" >Manage ads category</a>
+<a class="btn btn-success btn-signin" href="/categories/new.html" >Add Category</a>
+</div>
+</div>  
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<td class="style-table-c1">Name</td>
+		<td class="style-table-c2">Action</td>
+	</tr>
+	<% @categories.each_with_index do |category, index| %>
+	<tr>
+		<td><%= category.name %></td>
+		<td class="style-table-content">
+		  <a href="<%= edit_category_path(category.id) %>" class="btn btn-primary btn-signin">Edit</a> 	
+			<a href="<%= category_path(category.id) %>" data-method="delete" data-confirm="are you sure want to delete this category?" class="btn btn-danger btn-signin">Delete</a></td>
+	</tr>
+	<%end%>
+</table>

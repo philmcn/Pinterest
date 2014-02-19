@@ -1,0 +1,23 @@
+<div class="col-md-4 col-md-offset-4 edit-profile">
+<h2>Edit Category</h2>
+<%= form_for @category do |c| %>
+	<% if @category.errors.any? %>
+	   <div id="error_explanation">
+	    <h2><%= pluralize(@category.errors.count, "error") %> prohibited
+	      this category from being saved:</h2>
+	    <ul>
+	    <% @category.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+  	</div>
+  	<% end %>
+  <div class="control-group">
+   <%= c.label :name %>
+   <div class="control">
+     <%= c.text_field :name, placeholder:"Name of Category" %>
+    </div> 
+  <div>
+	<%= c.submit "Update Category", {class: "btn btn-success margin-top-desktop-7"} %>
+  </div>
+<% end %>

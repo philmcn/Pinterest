@@ -17,7 +17,11 @@
 
        <!--    <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", about_path %></li> -->
-          <li><%= link_to "Most Popular Fake Ads",root_path, class: "padding-top-desktop-15" %></li>
+          <% if current_user && (current_user.has_role? "admin")%>
+            <li><%= link_to "Manage Ads Categories",pins_categories_path, class: "padding-top-desktop-15" %></li>
+          <%else%>
+            <li><%= link_to "Most Popular Fake Ads",root_path, class: "padding-top-desktop-15" %></li>
+          <%end%>
         </ul>
         <ul class="nav navbar-nav navbar-right">        
           <li id="searchFormLi">            

@@ -1,0 +1,67 @@
+<div class="row-fluid">
+<div class="span3"> 
+<form id="controlCategory" action="/categories/pins" method="get" style="position: relative;width:100%; margin-left:25px">
+  <input type="textbox" name="search" placeholder="Search Brand and Ads..." value="" class="input-xlarge control-category" style="width:100%"/>
+  <input type="submit" class="search-btn no-top" value="">
+</form>
+</div>
+<div class="span9">
+<div style="float:right"> 
+<a href="<%=categories_path %>" class="btn btn-success margin-top-desktop-7" style="margin-left: 25px;">Category Management</a>
+</div>
+</div>
+</div>
+
+<div>
+  <form method="post" action="/categories/pins">
+  <button type="submit" class="btn btn-primary margin-top-desktop-7" style="float: right">Update</button>  
+  <ul style="list-style: none">
+  <% pins = @pins 
+     pins = @random_pins if pins.empty?
+  %>
+  <% pins.each_with_index do |pin, index| %>
+    <li>
+      <div>
+        <% if !pin.image.blank? %>
+         <div class="pull-left" style="margin-right: 15px;">
+          <%= link_to (image_tag pin.image(:medium),:style=>"height: 120px; width: 160px"), pin%>
+          </div>
+        <%end%>
+        
+        <%if !pin.youtube_url.blank? %>
+          <div class="pull-left" style="margin-right: 15px;">
+            <%= link_to raw("<div style='height: 120px; width: 160px'>" + youtube_embed_image(pin.youtube_url).html_safe + "</div>"), pin %>
+            <div style="width: 160px; height: 1px;"><%= link_to (image_tag "play-button.png",:style=>"width: 35px;margin-top:-21%;margin-right: 84%" ), pin %>
+            </div>
+          </div>
+        <%end%>  
+        <div style="padding-top:0px;"><% if !pin.description.blank?%>
+          <p class="description"> <strong><h3><%= link_to pin.description, pin, class: "pin-href" %></h3></strong></p>
+          <%end%>
+        </div>
+        <% if !pin.brand.blank?%>
+          <div style="padding-top: 5px;">
+            <p class="brand">
+              <strong>Category:</strong><br/> 
+              <select name="categories[<%=pin.id%>]" placeholder="Please choose a category">
+              <option value="">Please choose a category</option>
+              <%@categories.each do |cat| %>
+                <option value="<%= cat.id%>" <%=cat.id == pin.category_id ? "selected" : "" %>><%=cat.name %></option>
+              <%end%>
+            </select>
+            </p>
+          </div>
+        <%end%>
+      </div>
+    </li>
+    <div style="clear:both"></div>
+    <%if index != (@pins.size - 1) %>
+      <div style="border-top: 1px dotted gray; margin-top: 10px; margin-bottom: -10px;"></div>
+    <%end%>  
+    <div style="clear:both"></div>
+  <%end%>  
+  </ul>
+  <button type="submit" class="btn btn-primary margin-top-desktop-7" style="float: right">Update</button>
+  </form>
+</div>
+<%= will_paginate @pins%>
