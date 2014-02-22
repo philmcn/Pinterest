@@ -25,7 +25,7 @@ class Pin < ActiveRecord::Base
    #                          	size: { less_than: 5.megabytes }
      	belongs_to :user
   	has_attached_file :image, styles: { medium: "320x240"}
-
+    belongs_to :category
 
 
   	def image_remote_url=(url_value)

@@ -59,6 +59,10 @@ end
 
     @pin = Pin.find(params[:id])
     @relative_pins = []
+    if !@pin.category_id.blank?
+      @relative_pins += Pin.where(category_id: @pin.category_id).where("id != ?", @pin.id)  
+    end
+    
     if !@pin.brand.blank?
       @relative_pins += Pin.where(brand: @pin.brand).where("id != ?", @pin.id)
     end
@@ -137,7 +141,7 @@ end
   end
   
   def search
-    @pins = Pin.where("lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
+    @pins = Pin.joins("left join categories on categories.id = pins.category_id").where("lower(categories.name) like :search or lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
               {search: '%' + params[:search].to_s.downcase + '%'})
               .page(params[:page]).per_page(10)
     

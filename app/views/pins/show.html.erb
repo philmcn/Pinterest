@@ -11,24 +11,37 @@
     <p class="description"><strong> <h3><%= @pin.description %></h3></strong></p>
   <%end%>
 
-  <div style="padding-top: 10px;">
-    <% if !@pin.brand.blank?%>
-      <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= @pin.brand %></h4></p>
-    <%end%>
-  </div>
-    <% if (current_user == @pin.user) || (current_user && (current_user.has_role? "admin"))%>
-      <%= link_to 'Edit', edit_pin_path(@pin) %> - 
-      <%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-    <!-- <b>Rating:</b> <%= rating_for @pin, "rating" %>   -->
-    <% if  !@pin.user.nil? %>
-      <p><strong>Uploaded By - </strong><%= link_to @pin.user.name, @pin.user %></p>
-    <%end%>
-    <% if  !@pin.created_by.blank? %>
-      <p><strong>Created By - </strong><%=@pin.created_by %></p>
-    <%end%>
-
-    <div id="fb-root"></div>
+  <% if !@pin.brand.blank?%>
+    <p class="brand">
+      <strong><h4>Brand:</h4></strong> 
+      <h4 style="margin-top: -29px; margin-left: 97px;;"><%= @pin.brand %></h4>
+    </p>
+  <%end%> 
+  <% if @pin.category%>
+    <p class="brand">
+      <strong><h4 >Category: </h4></strong>
+      <h4 style="margin-top: -29px; margin-left: 97px;"><%=@pin.category.name %></h4>
+    </p>
+  <%end%>
+    
+  <% if  !@pin.user.nil? %>
+    <p class="brand">
+      <strong><h5>Uploaded By: </h5></strong>
+      <h5 class="uploaded-by" style="margin-top: -25px; margin-left: 97px;"><%= link_to @pin.user.name, @pin.user %></h5>
+    </p>
+  <%end%>
+  <% if  !@pin.created_by.blank? %>
+    <p class="brand">
+      <strong><h5>Created By: </h5></strong>
+      <h5 style="margin-top: -25px; margin-left: 97px;"><%=@pin.created_by %></h5>
+    </p>
+  <%end%>
+  
+  <% if (current_user == @pin.user) || (current_user && (current_user.has_role? "admin"))%>
+    <%= link_to 'Edit', edit_pin_path(@pin) %> - 
+    <%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  <div id="fb-root"></div>
 
     <script>
       (function(d, s, id) {
@@ -56,7 +69,7 @@
 
 
 <% if !@relative_pins.empty? %>
- <div class="span4 ml-sm">
+ <div class="span4 ml-sm relative-ads">
   <h3 class="relative-ads-title">Related Ads</h3> 
   <ul style="list-style: none">
   <% @relative_pins.each_with_index do |pin, index| %>
@@ -75,17 +88,22 @@
             </div>
           </div>
         <%end%>  
-        <div style="padding-top:0px;"><% if !pin.description.blank?%>
+        <div style="padding-top: 0px;padding-left: 125px"><% if !pin.description.blank?%>
           <p class="description"> <strong><h3><%= link_to truncate(pin.description, length: 20), pin, class: "pin-href" %></h3></strong></p>
           <%end%>
         </div>
         <% if !pin.brand.blank?%>
-          <div>
+          <div style="padding-top: 0px;padding-left: 125px">
             <p class="brand"><strong>Brand:</strong> <%= truncate(pin.brand, length: 20) %></p>
+          </div>
+        <%end%>
+        <% if pin.category%>
+          <div style="padding-top: 0px;padding-left: 125px">
+            <p class="brand"><strong>Category:</strong> <%= pin.category.name %></p>
           </div>
         <%end%>      
         <% if !pin.created_by.blank?%>
-          <div>
+          <div style="padding-top: 0px;padding-left: 125px">
             <p class="brand"><strong>Created By:</strong> <%= truncate(pin.created_by, length: 20) %></p>
           </div>
         <%end%>

@@ -1,7 +1,7 @@
 <div class="row-fluid">
 <div class="span3"> 
 <form id="controlCategory" action="/categories/pins" method="get" style="position: relative;width:100%; margin-left:25px">
-  <input type="textbox" name="search" placeholder="Search Brand and Ads..." value="" class="input-xlarge control-category" style="width:100%"/>
+  <input type="textbox" name="search_cat" placeholder="Search Brand and Ads..." value="<%=params[:search_cat]%>" class="input-xlarge control-category" style="width:100%"/>
   <input type="submit" class="search-btn no-top" value="">
 </form>
 </div>
@@ -13,11 +13,14 @@
 </div>
 
 <div>
-  <form method="post" action="/categories/pins">
+  <%= form_tag do |f|%>
+  <input name="authenticity_token" type="hidden" value="NrOp5bsjoLRuK8IW5+dQEYjKGUJDe7TQoZVvq95Wteg=" />
+  <% if !@pins.empty?%>
   <button type="submit" class="btn btn-primary margin-top-desktop-7" style="float: right">Update</button>  
+  <%end%>
   <ul style="list-style: none">
-  <% pins = @pins 
-     pins = @random_pins if pins.empty?
+  <% 
+    pins = @pins      
   %>
   <% pins.each_with_index do |pin, index| %>
     <li>
@@ -61,7 +64,9 @@
     <div style="clear:both"></div>
   <%end%>  
   </ul>
+  <% if !@pins.empty?%>
   <button type="submit" class="btn btn-primary margin-top-desktop-7" style="float: right">Update</button>
-  </form>
+  <%end%>
+  <%end%>
 </div>
 <%= will_paginate @pins%>

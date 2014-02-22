@@ -38,13 +38,19 @@
     <%end%>
   </div>
   <% if !pin.brand.blank?%>
-    <div style="padding-top: 10px;">
-      <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 69px;"><%= pin.brand %></h4></p>
+    <div style="padding-top: 0px;">
+      <p class="brand"><strong><h4>Brand:</h4></strong> <h4 style="margin-top: -29px; margin-left: 109px;"><%= pin.brand %></h4></p>
     </div>
   <%end%>
 
+  <% if pin.category %>
+    <div style="padding-top: 0px;">
+      <p class="brand"><strong><h4>Category:</h4></strong> <h4 style="margin-top: -29px; margin-left: 109px;"><%= pin.category.name %></h4></p>
+    </div>
+  <%end%>
+  
   <% if !pin.created_by.blank?%>
-    <div style="padding-top: 10px;">
+    <div style="padding-top: 0px;">
       <p class="brand"><strong><h4>Created By:</h4></strong> <h4 style="margin-top: -29px; margin-left: 109px;"><%= pin.created_by %></h4></p>
     </div>
   <%end%>

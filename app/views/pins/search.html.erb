@@ -27,12 +27,17 @@
           <%end%>
         </div>
         <% if !pin.brand.blank?%>
-          <div style="padding-top: 10px;">
+          <div style="padding-top: 0px;padding-left: 175px">
             <p class="brand"><strong>Brand:</strong> <%= pin.brand %></p>
+          </div>
+        <%end%>
+        <% if pin.category%>
+          <div style="padding-top: 0px;padding-left: 175px">
+            <p class="brand"><strong>Category:</strong> <%= pin.category.name %></p>
           </div>
         <%end%>      
         <% if !pin.created_by.blank?%>
-          <div style="padding-top: 10px;">
+          <div style="padding-top: 0px;padding-left: 175px">
             <p class="brand"><strong>Created By:</strong> <%= pin.created_by %></p>
           </div>
         <%end%>

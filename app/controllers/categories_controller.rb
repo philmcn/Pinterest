@@ -63,8 +63,8 @@ class CategoriesController < ApplicationController
   
   #
   def pins
-    @pins = Pin.where("lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
-              {search: '%' + params[:search].to_s.downcase + '%'})
+    @pins = Pin.joins("left join categories on categories.id = pins.category_id").where("lower(categories.name) like :search or lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
+              {search: '%' + params[:search_cat].to_s.downcase + '%'})
               .page(params[:page]).per_page(10)
     @categories = Category.all
     if request.post?
