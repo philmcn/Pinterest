@@ -10,6 +10,7 @@ Pinterest::Application.routes.draw do
   resources :pins do
     get :top, on: :collection
     get :search, on: :collection
+    get :update_voting, on: :collection
     opinio
   end
 
@@ -94,10 +95,12 @@ end
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
   resources :categories  do
     collection do 
       get 'pins'
       post 'pins'
     end
   end  
+   
 end
