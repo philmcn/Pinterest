@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed, :search]
+  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed, :search, :update_voting]
   # GET /pins
   # GET /pins.json
   def index
@@ -29,14 +29,16 @@ def pins_feed
 # @entry = feed.entries
 
 end
-def feed
- @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
-  respond_to do |format|
-    format.html
-    format.rss { render :layout => false }
-    format.atom { render :layout => false }
+
+  def feed
+   @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+      format.atom { render :layout => false }
+    end
   end
-end
+  
   def top
     @pins = Pin.top_rated
     respond_to do |format|
@@ -162,5 +164,16 @@ end
       format.xml
       format.json { render json: @pins }
     end  
+  end
+  
+  def update_voting
+    pin = Pin.find(params[:id])
+
+    if params[:like] == "false"
+       pin.update_attributes({voting: pin.voting.to_i - 1})
+    else
+       pin.update_attributes({voting: pin.voting.to_i + 1}) 
+    end
+    render json: {success: true, voting_number: pin.voting.to_i, voting_id: pin.id}
   end
 end

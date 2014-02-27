@@ -59,7 +59,7 @@ $navbarBackground: white;
 .box .star img {
     width: auto !important;
 }
-input[type]{ height:30px !important;}
+input[type]{ height:30px;}
 
 
 /*======Sign-in======*/
@@ -245,3 +245,38 @@ input.search-btn.no-top{
   text-decoration: none;
   color: black;
 }
+
+.img-like{
+  width:16px !important;
+  height:16px !important;
+  float: right;
+}
+
+.img-dislike{
+  width:16px !important;
+  height:16px !important;
+  float: right;
+  margin-left: 5px;
+}
+
+.img-like-show{
+  width:16px !important;
+  height:16px !important;
+}
+
+.img-dislike-show{
+  width:16px !important;
+  height:16px !important;
+}
+
+.img-like-search{
+  width:16px !important;
+  height:16px !important;
+}
+
+.img-dislike-search{
+  width:16px !important;
+  height:16px !important;
+}
+
+

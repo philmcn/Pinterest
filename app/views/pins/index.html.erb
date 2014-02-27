@@ -15,14 +15,16 @@
 <%#= will_paginate @pins, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
 <script type="text/javascript">
 var current_page=1;
-$(window).scroll(function()
-{    if($(window).scrollTop() == $(document).height() - $(window).height())
-    {current_page++;
-        $('div#loadmoreajaxloader').show();
-        $.ajax({
-        url: "inf?page="+current_page,
-        });
-    }
+	$(window).scroll(function()
+	{    if($(window).scrollTop() == $(document).height() - $(window).height())
+	    {current_page++;
+	        $('div#loadmoreajaxloader').show();
+	        $.ajax({
+	        url: "inf?page="+current_page,
+	        });
+	    }
+	
+	});
 
-});
+	
 </script>
