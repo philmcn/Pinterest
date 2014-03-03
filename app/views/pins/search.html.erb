@@ -42,9 +42,9 @@
           </div>
         <%end%>
         <div>		
-			<input id="btn-like" type="image" src="/assets/like.gif" class="img-like-search" alt="Like" data-like="true" data-id="<%= pin.id %>" >
-			<span id="voting-number-<%=pin.id%>" style="width:30px; height: 18px; font-size: 10px; padding: 0;text-align: center;" ><%= pin.voting.to_i %></span>
-			<input id="btn-dislike" style="" type="image" src="/assets/unlike.gif" class="img-dislike-search" alt="DisLike" data-like="false" data-id="<%= pin.id %>" >				
+			<input id="btn-like" type="image" src="/assets/like.png" class="img-like-search" alt="Like" data-like="true" data-id="<%= pin.id %>" >
+			<span id="voting-number-<%=pin.id%>" style="width:30px; height: 18px; font-size: 14px; padding: 0;text-align: center;margin-top:10px;" ><%= pin.voting.to_i %></span>
+			<input id="btn-dislike" style="" type="image" src="/assets/unlike.png" class="img-dislike-search" alt="DisLike" data-like="false" data-id="<%= pin.id %>" >				
 		</div>
       </div>
     </li>
