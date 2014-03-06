@@ -20,7 +20,7 @@ module ApplicationHelper
 	    youtube_id = $5
 	  end
 
-	  %Q{<img src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
+	  %Q{<img rel="no-follow" src="http://img.youtube.com/vi/#{ youtube_id }/0.jpg"/>}
 	end
 
     def youtube_embed_image_rss(youtube_url)
