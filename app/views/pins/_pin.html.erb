@@ -77,7 +77,8 @@
 </div>
 
 <script>
-   $('.img-like, .img-dislike').on('click',function(){
+	$('.img-like, .img-dislike').unbind();
+   	$('.img-like, .img-dislike').on('click',function(){
 		$.ajax({
 			url:"/pins/update_voting",
 			data: $(this).data()

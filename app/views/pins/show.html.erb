@@ -127,6 +127,7 @@
 <% end %>
 
 <script>
+	$('.img-like-show, .img-dislike-show').unbind();
    $('.img-like-show, .img-dislike-show').on('click',function(){
 		$.ajax({
 			url:"/pins/update_voting",

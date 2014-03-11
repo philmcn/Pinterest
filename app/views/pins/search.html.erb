@@ -59,6 +59,7 @@
 <%= will_paginate @pins%>
 
 <script>
+	$('.img-like-search, .img-dislike-search').unbind();
    $('.img-like-search, .img-dislike-search').on('click',function(){
 		$.ajax({
 			url:"/pins/update_voting",

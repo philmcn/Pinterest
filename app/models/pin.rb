@@ -53,7 +53,11 @@ class Pin < ActiveRecord::Base
 
   #   end
   # end
-
+  after_create :init_voting_ips
+  def init_voting_ips
+    self.update_attributes(voting_ips:[].to_json)
+  end
+  
 end
 
 
