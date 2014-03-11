@@ -168,12 +168,22 @@ end
   
   def update_voting
     pin = Pin.find(params[:id])
-
-    if params[:like] == "false"
-       pin.update_attributes({voting: pin.voting.to_i - 1})
-    else
-       pin.update_attributes({voting: pin.voting.to_i + 1}) 
+    
+    voting_ips = pin.voting_ips
+    voting_ips = JSON.parse voting_ips
+    is_exists = voting_ips.include?(request.remote_ip)
+    if(is_exists == false)
+      voting_ips << request.remote_ip
+      if params[:like] == "false"         
+         pin.update_attributes({voting: pin.voting.to_i - 1, voting_ips: voting_ips.to_json})
+      else
+         pin.update_attributes({voting: pin.voting.to_i + 1, voting_ips: voting_ips.to_json}) 
+      end  
+      render json: {success: true, voting_number: pin.voting.to_i, voting_id: pin.id}
+      
+     else
+       render json: {success: false, notice: "You already voted"}    
     end
-    render json: {success: true, voting_number: pin.voting.to_i, voting_id: pin.id}
+    
   end
 end

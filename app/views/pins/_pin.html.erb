@@ -82,7 +82,11 @@
 			url:"/pins/update_voting",
 			data: $(this).data()
 		}).done(function(data){
-			$('#voting-number-' + data.voting_id).text(data.voting_number);
+			if(data.success==true){
+				$('#voting-number-' + data.voting_id).text(data.voting_number);
+			}else{
+				alert(data.notice);
+			}
 		});
 	});	
 </script>
