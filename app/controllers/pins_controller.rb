@@ -4,9 +4,11 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-
-    @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
-
+    if params[:sort_voting]
+      @pins = Pin.order("voting desc, created_at desc").page(params[:page]).per_page(50)
+    else
+      @pins = Pin.order("created_at desc").page(params[:page]).per_page(50)
+    end
      respond_to do |format|
       format.html
       format.rss { render :layout => false }
@@ -38,7 +40,7 @@ end
       format.atom { render :layout => false }
     end
   end
-  
+
   def top
     @pins = Pin.top_rated
     respond_to do |format|
@@ -62,18 +64,18 @@ end
     @pin = Pin.find(params[:id])
     @relative_pins = []
     if !@pin.category_id.blank?
-      @relative_pins += Pin.where(category_id: @pin.category_id).where("id != ?", @pin.id)  
+      @relative_pins += Pin.where(category_id: @pin.category_id).where("id != ?", @pin.id)
     end
-    
+
     if !@pin.brand.blank?
       @relative_pins += Pin.where(brand: @pin.brand).where("id != ?", @pin.id)
     end
-    
+
     if !@pin.created_by.blank?
       @relative_pins += Pin.where(brand: @pin.brand).where("id != ?", @pin.id)
     end
-    
-    @relative_pins.uniq!  
+
+    @relative_pins.uniq!
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @pin }
@@ -141,13 +143,13 @@ end
       format.json { head :no_content }
     end
   end
-  
+
   def search
-    @pins = Pin.joins("left join categories on categories.id = pins.category_id").where("lower(categories.name) like :search or lower(description) like :search or lower(slug) like :search or lower(brand) like :search", 
+    @pins = Pin.joins("left join categories on categories.id = pins.category_id").where("lower(categories.name) like :search or lower(description) like :search or lower(slug) like :search or lower(brand) like :search",
               {search: '%' + params[:search].to_s.downcase + '%'})
               .page(params[:page]).per_page(10)
-    
-    
+
+
     if @pins.empty?
       @random_pins = []
       max_random = rand(5) + 5
@@ -156,34 +158,34 @@ end
       while(@random_pins.size < max_random)
         @random_pins.push(pins[rand(pins.size)])
       end
-      @random_pins.uniq!  
+      @random_pins.uniq!
     end
      respond_to do |format|
       format.html
       format.rss { render :layout => false }
       format.xml
       format.json { render json: @pins }
-    end  
+    end
   end
-  
+
   def update_voting
     pin = Pin.find(params[:id])
-    
+
     voting_ips = pin.voting_ips
     voting_ips = JSON.parse voting_ips
     is_exists = voting_ips.include?(request.remote_ip)
     if(is_exists == false)
       voting_ips << request.remote_ip
-      if params[:like] == "false"         
+      if params[:like] == "false"
          pin.update_attributes({voting: pin.voting.to_i - 1, voting_ips: voting_ips.to_json})
       else
-         pin.update_attributes({voting: pin.voting.to_i + 1, voting_ips: voting_ips.to_json}) 
-      end  
+         pin.update_attributes({voting: pin.voting.to_i + 1, voting_ips: voting_ips.to_json})
+      end
       render json: {success: true, voting_number: pin.voting.to_i, voting_id: pin.id}
-      
+
      else
-       render json: {success: false, notice: "You already voted"}    
+       render json: {success: false, notice: "You already voted"}
     end
-    
+
   end
 end
