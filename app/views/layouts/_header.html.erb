@@ -26,13 +26,13 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="searchFormLi">
             <form id="searchForm" action="/pins/search" method="get">
-              <input type="textbox" name="search" placeholder="Search Brands and Ads.." value="<%= params[:search] %>" class="form-control input-xlarge navbar-right margin-top-desktop-7-custom search-textbox">
+              <input type="textbox" name="search" placeholder="Search Brands and Ads.." value="<%= params[:search] %>" class="form-control input-xlarge navbar-right margin-top-desktop-7-custom search-textbox" autofocus="true">
               <input type="submit" class="search-btn" value=""/>
             </form>
 
           </li>
          <% if current_user.nil? %>
-            <%= link_to "Upload or Create New Funny Fake Ad", new_pin_path ,:class=>" btn btn-success navbar-right margin-top-desktop-7 btn-signin" %>
+            <%= link_to "Upload Ads", new_pin_path ,:class=>" btn btn-success navbar-right margin-top-desktop-7 btn-signin" %>
          <% else %>
 
          <li><button type="submit" class="btn btn-success margin-top-desktop-7"><%= link_to "Upload or Create New Funny Fake Ad", new_pin_path%></button></li>
