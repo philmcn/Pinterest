@@ -17,6 +17,7 @@
  *= require 'masonry/transitions'
  *= require_self
  *= require_tree .
+ *= require bootstrap.min
 */
 .navbar-static-top .navbar-inner {
   min-width: 0px;

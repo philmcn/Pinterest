@@ -19,8 +19,7 @@
 //= require masonry/jquery.infinitescroll.min
 //= require masonry/modernizr-transitions
 //= require_tree .
-
-//facebook like button
+//= require bootstrap.min
 
 
 $(function(){
