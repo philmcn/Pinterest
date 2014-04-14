@@ -60,13 +60,10 @@
     }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <div style="float: left;padding-top: 6px; margin-right: 10px;">
-        <fb:like href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" send="false" layout="button_count" show_faces="false"></fb:like>
-      </div>
-      
-    <div >
+    <div style="margin-bottom: 5px;">
       <script src="http://connect.facebook.net/en_US/all.js#appId=674362825929827&xfbml=1" type="text/javascript"></script>
       <a title="Share" href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.funnyfakeads.com/pins/<%= @pin.id %>&p[images][0]=<%= @pin.image.url %>&p[title]=<%= @pin.description %>&p[summary]=<%= @pin.brand %>"  target='_blank'><img src="../assets/facebook-share.png" style="border-radius: 0% 0% 0% 0% ! important; height: 31px; width: 31px;"/></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to (image_tag "twitter.jpg",:style=>"border-radius: 0% 0% 0% 0% ! important;width: 31px; height: 31px; margin-top: 0%; margin-left: 0%;"), "http://twitter.com/home?status=#{@pin.description} #{pins_url(@pin)}", :target=>"_blank"%>
     </div>
     <div class="fb-comments" style="width:100%;" data-href="http://www.funnyfakeads.com/pins/<%= @pin.id %>" data-float="left" data-numposts="1" data-colorscheme="light"></div>
