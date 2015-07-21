@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:index,:show,:inf,:top,:pins_feed,:feed, :search, :update_voting]
+  before_filter :authenticate_user!, except: [:new, :create, :index,:show,:inf,:top,:pins_feed,:feed, :search, :update_voting]
   # GET /pins
   # GET /pins.json
   def index

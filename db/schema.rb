@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
   add_index "authentications", ["user_name"], :name => "index_authentications_on_user_name"
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false
     t.integer  "commentable_id",   :null => false
@@ -57,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
 
   create_table "pins", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -68,6 +74,10 @@ ActiveRecord::Schema.define(:version => 20130802001649667) do
     t.string   "youtube_url"
     t.string   "slug"
     t.string   "brand"
+    t.string   "created_by"
+    t.integer  "category_id"
+    t.integer  "voting",             :default => 0
+    t.text     "voting_ips"
   end
 
   add_index "pins", ["brand"], :name => "index_pins_on_brand"
