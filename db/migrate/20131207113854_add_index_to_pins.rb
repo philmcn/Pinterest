@@ -8,6 +8,6 @@ class AddIndexToPins < ActiveRecord::Migration
   	add_index :pins, :image_updated_at
   	add_index :pins, :image_remote_url
   	add_index :pins, :youtube_url
-  	add_index :pins, :brand
+  #	add_index :pins, :brand
   end
 end

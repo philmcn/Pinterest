@@ -1,9 +1,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   database: hidden_chamber_development
   pool: 5
   username: root
-  password:
-  socket: /opt/lampp/var/mysql/mysql.sock
+  password: "123456"

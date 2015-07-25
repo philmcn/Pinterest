@@ -16,7 +16,7 @@ class Pin < ActiveRecord::Base
                   :created_by, :category_id, :voting, :voting_ips
 
   	validates :description, :presence => { :message => "Silly you! You need to add a description of your image!" }
-  	validates :user_id, presence: true
+  #	validates :user_id, presence: true
     validates_attachment_content_type :image,
        :content_type => ['image/jpeg', 'image/png', 'image/gif','image/jpg'],
        :message      => ",Please enter valid image type path"
